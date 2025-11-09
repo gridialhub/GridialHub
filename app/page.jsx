@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="grid" style={{gap:24}}>
       <section className="card">
-        <h1>🎁 Gran Sorteo de la Comunidad</h1>
+        <h1>🎮 Gran sorteo exclusivo para mi comunidad</h1>
         <p className="meta">Global • Sin compra necesaria • Selección al azar en vivo</p>
         <p>
           Premio total <b>$200</b> repartido entre <b>5 ganadores</b>. Elige: saldo Steam, tarjeta de regalo,
@@ -42,3 +42,4 @@ export default function Home() {
     </div>
   );
 }
+
