@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "./ThemeToggle";
 
 const links = [
   { href: "/", label: "Inicio" },
@@ -8,23 +9,29 @@ const links = [
   { href: "/articulos", label: "Artículos" },
   { href: "/resultados", label: "Resultados" },
   { href: "/bases", label: "Bases" },
-  { href: "/privacidad", label: "Privacidad" },
-  { href: "/terminos", label: "Términos" },
   { href: "/contacto", label: "Contacto" }
 ];
 
 export default function Header() {
   const pathname = usePathname();
   return (
-    <header style={{borderBottom:"1px solid var(--border)"}}>
-      <div className="container" style={{display:"flex", alignItems:"center", justifyContent:"space-between", gap:16}}>
-        <Link href="/" className="logo" style={{fontWeight:900, fontSize:20}}>GridialHub</Link>
-        <nav style={{display:"flex", gap:12, flexWrap:"wrap"}}>
+    <header style={{position:"sticky", top:0, zIndex:50, backdropFilter:"saturate(180%) blur(8px)", background:"color-mix(in oklab, var(--bg) 92%, transparent)"}}>
+      <div className="container" style={{display:"flex", alignItems:"center", justifyContent:"space-between", gap:16, paddingTop:14, paddingBottom:14}}>
+        <Link href="/" className="logo" style={{fontWeight:900, fontSize:20, letterSpacing:.3}}>GridialHub</Link>
+        <nav style={{display:"flex", gap:14, flexWrap:"wrap", alignItems:"center"}}>
           {links.map(l => (
-            <Link key={l.href} href={l.href} className={pathname===l.href ? "active" : ""}>{l.label}</Link>
+            <Link
+              key={l.href}
+              href={l.href}
+              className={pathname===l.href ? "active navlink" : "navlink"}
+            >
+              {l.label}
+            </Link>
           ))}
+          <ThemeToggle />
         </nav>
       </div>
+      <div style={{height:1, background:"var(--border)"}} />
     </header>
   );
 }
