@@ -60,9 +60,17 @@ export default function Header() {
           paddingBottom: 14,
         }}
       >
-        <Link href="/" className="logo" style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <Logo />
-        </Link>
+       <Link href="/" className="logo" style={{
+  fontWeight: 900,
+  fontSize: 22,
+  letterSpacing: 0.3,
+  background: "linear-gradient(90deg, var(--brand), color-mix(in oklab, var(--brand), #9333ea 50%))",
+  WebkitBackgroundClip: "text",
+  WebkitTextFillColor: "transparent"
+}}>
+  GridialHub
+</Link>
+
 
         <nav style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
           {links.map((l) => (
@@ -87,6 +95,7 @@ export default function Header() {
     </header>
   );
 }
+
 
 
 
