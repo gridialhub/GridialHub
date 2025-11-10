@@ -8,7 +8,7 @@ const links = [
   { href: "/articulos", label: "Artículos" },
   { href: "/resultados", label: "Resultados" },
   { href: "/bases", label: "Bases" },
-  { href: "/contacto", label: "Contacto" }
+  { href: "/contacto", label: "Contacto" } // ← solo una vez
 ];
 
 export default function Header() {
@@ -35,7 +35,7 @@ export default function Header() {
           paddingBottom: 14
         }}
       >
-        {/* Texto estable como logo */}
+        {/* Logo de texto estable */}
         <Link
           href="/"
           className="logo"
@@ -75,6 +75,8 @@ export default function Header() {
     </header>
   );
 }
+
+
 
 
 
