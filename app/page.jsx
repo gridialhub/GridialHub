@@ -22,12 +22,13 @@ export default function Home() {
           <div className="intro-box">
             <p
               className="intro-text"
-              style={{ fontSize: 20, lineHeight: 1.6, maxWidth: 700, marginBottom: 28 }}
+              style={{ fontSize: 20, lineHeight: 1.6, maxWidth: 720, marginBottom: 28 }}
             >
-              Bienvenido a <b>GridialHub</b>, un espacio para la comunidad donde
-              compartimos avances de <b>videojuegos</b>, <b>tecnología</b>, y
-              organizamos <b>eventos y sorteos</b> exclusivos para seguidores.
-              Entra, infórmate y participa.
+              Bienvenido a <b>GridialHub</b>, el punto de encuentro para mi comunidad. Aquí
+              te mantienes al día con <b>avances en videojuegos</b>, tendencias de{" "}
+              <b>tecnología</b>, además de <b>eventos</b> y <b>sorteos</b> pensados para
+              quienes apoyan el proyecto. Mi objetivo es que tengas información útil, honesta
+              y en un solo lugar, mientras crecemos como comunidad.
             </p>
 
             <Link href="/sorteos" className="btn" style={{ fontSize: 18, padding: "12px 28px", borderRadius: 12 }}>
@@ -37,47 +38,53 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Tarjetas / “pestañas” de acceso rápido */}
+      {/* Últimos artículos / accesos rápidos */}
       <section className="card" style={{ padding: 16 }}>
-        <h3 style={{ marginTop: 0 }}>Explora</h3>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <h3 style={{ margin: 0 }}>Últimos artículos</h3>
+          <Link href="/articulos" className="btn btn-secondary">Ver todos</Link>
+        </div>
+
         <div className="post-grid">
-          {/* Artículos */}
+          {/* Artículo 1: Juego */}
           <article className="post-card">
             <div className="post-thumb thumb-game" />
             <div className="post-body">
-              <h4>Artículos</h4>
-              <p className="meta">Noticias, guías y contenido de la comunidad</p>
-              <Link href="/articulos" className="btn btn-link">Entrar</Link>
+              <h4><Link href="/articulos">Primeras impresiones de un juego nuevo</Link></h4>
+              <p className="meta">Opinión, rendimiento y modos de juego</p>
             </div>
           </article>
 
-          {/* Reseñas */}
+          {/* Artículo 2: Componentes PC */}
           <article className="post-card">
             <div className="post-thumb thumb-pc" />
             <div className="post-body">
-              <h4>Reseñas</h4>
-              <p className="meta">Opiniones de juegos y hardware</p>
-              <Link href="/resenas" className="btn btn-link">Entrar</Link>
+              <h4><Link href="/articulos">Componentes de PC: guía rápida</Link></h4>
+              <p className="meta">GPU, CPU, RAM: qué mirar antes de comprar</p>
             </div>
           </article>
 
-          {/* Sorteos */}
+          {/* Artículo 3: Sorteo */}
           <article className="post-card">
             <div className="post-thumb thumb-raffle" />
             <div className="post-body">
-              <h4>Sorteos</h4>
-              <p className="meta">Participa y revisa fechas y reglas</p>
-              <Link href="/sorteos" className="btn btn-link">Entrar</Link>
+              <h4><Link href="/sorteos">Sorteo activo: $200 para 5 ganadores</Link></h4>
+              <p className="meta">Cómo participar y cuándo será el en vivo</p>
             </div>
           </article>
 
-          {/* Redes */}
+          {/* Artículo 4: Redes (sin nuevas rutas; badges a tus perfiles) */}
           <article className="post-card">
             <div className="post-thumb thumb-social" />
             <div className="post-body">
               <h4>Redes y canales</h4>
-              <p className="meta">TikTok, Twitch, YouTube y Facebook</p>
-              <Link href="/redes" className="btn btn-link">Entrar</Link>
+              <p className="meta">Sígueme para sumar oportunidades</p>
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                <a className="badge" href="https://www.tiktok.com/@gridial" target="_blank" rel="noreferrer">TikTok</a>
+                <a className="badge" href="https://www.twitch.tv/gridialtv" target="_blank" rel="noreferrer">Twitch</a>
+                <a className="badge" href="https://www.youtube.com/@Gridial" target="_blank" rel="noreferrer">YouTube</a>
+                <a className="badge" href="https://www.facebook.com/GridialOfficial" target="_blank" rel="noreferrer">Facebook</a>
+              </div>
             </div>
           </article>
         </div>
