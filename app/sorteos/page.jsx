@@ -1,75 +1,152 @@
 "use client";
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import Link from "next/link";
+
+const REDES = [
+  { key: "tiktok", label: "TikTok", url: "https://www.tiktok.com/@gridial" },
+  { key: "twitch", label: "Twitch", url: "https://www.twitch.tv/gridialtv" },
+  { key: "youtube", label: "YouTube", url: "https://www.youtube.com/@Gridial" },
+  { key: "facebook", label: "Facebook", url: "https://www.facebook.com/GridialOfficial" },
+  { key: "kick", label: "Kick", url: "https://kick.com/gridial" }
+];
 
 export default function Sorteos() {
   const [email, setEmail] = useState("");
-  const [user, setUser] = useState("");
-  const [follow, setFollow] = useState({ tiktok:false, twitch:false, youtube:false, facebook:false });
-  const entries = 1 + Object.values(follow).filter(Boolean).length;
+  const [usuario, setUsuario] = useState("");
+  const [redes, setRedes] = useState<Record<string, boolean>>({});
+  const [acepto, setAcepto] = useState(false);
+  const [enviando, setEnviando] = useState(false);
+  const [ok, setOk] = useState<string | null>(null);
+  const [err, setErr] = useState<string | null>(null);
 
-  const submit = () => {
-    if (!email || !user) return alert("Completa email y usuario para participar.");
-    alert(`Registro demo completado.\nEntradas totales: ${entries}\n(En producción se guardará en la base de datos).`);
+  const entradas = useMemo(() => {
+    const extras = Object.values(redes).filter(Boolean).length;
+    return 1 + extras; // 1 por registro + 1 por cada red
+  }, [redes]);
+
+  const toggleRed = (key: string) =>
+    setRedes(prev => ({ ...prev, [key]: !prev[key] }));
+
+  const validar = () => {
+    if (!email.trim()) return "El email es obligatorio.";
+    // Regex simple y suficiente
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return "Email inválido.";
+    if (!usuario.trim() || usuario.trim().length < 3) return "Ingresa un usuario visible (mínimo 3 caracteres).";
+    if (!acepto) return "Debes aceptar las reglas contra fraude.";
+    return null;
+    // Nota: la verificación real de redes vendrá en la fase 2 (API).
+  };
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setOk(null);
+    setErr(null);
+    const v = validar();
+    if (v) { setErr(v); return; }
+
+    try {
+      setEnviando(true);
+      // FASE 1 (demo): no llamamos servidor, solo simulamos.
+      // En FASE 2: haremos POST a /api/participaciones (Supabase/Neon).
+      await new Promise(r => setTimeout(r, 500));
+      setOk(`¡Listo! Tu registro fue recibido. Entradas totales: ${entradas}.`);
+      // Limpieza suave (dejamos redes marcadas si quieres)
+      // setEmail(""); setUsuario(""); setRedes({});
+    } catch (e: any) {
+      setErr("No se pudo enviar tu registro. Intenta de nuevo.");
+    } finally {
+      setEnviando(false);
+    }
   };
 
   return (
-    <div className="grid" style={{gap:16}}>
-      <div className="card">
-        <h1>Participa en el sorteo</h1>
-        <p className="meta">Regístrate y suma oportunidades por cada red social</p>
-        <div className="grid grid-2">
-          <div>
-            <label>Email</label>
-            <input placeholder="tu@email.com" value={email} onChange={e=>setEmail(e.target.value)} />
-          </div>
-          <div>
-            <label>Usuario a mostrar</label>
-            <input placeholder="@tu_usuario" value={user} onChange={e=>setUser(e.target.value)} />
-          </div>
+    <div className="card" style={{ display: "grid", gap: 12 }}>
+      <h1>Participa en el sorteo</h1>
+      <p className="meta">
+        Premio total <b>$200</b> entre <b>5 ganadores</b>. Sin compra necesaria.
+        <br />
+        <b>Entradas:</b> 1 por registro + 1 por cada red donde sigas (TikTok, Twitch, YouTube, Facebook, Kick).
+      </p>
+
+      {/* Estado / aviso */}
+      <div className="glass hint">
+        <div className="glass-row"><span>Estado</span><strong>Activo</strong></div>
+        <div className="glass-row"><span>Fecha del sorteo</span><strong>Por anunciar</strong></div>
+        <div className="glass-row"><span>Transmisión</span><strong>Twitch & TikTok Live</strong></div>
+      </div>
+
+      <form onSubmit={onSubmit} className="form-grid">
+        <div className="form-field">
+          <label>Email *</label>
+          <input
+            type="email"
+            placeholder="tu@email.com"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            autoComplete="email"
+            required
+          />
         </div>
 
-        <hr />
-        <h3>Opcionales (cada uno suma +1)</h3>
-        <div className="grid grid-2">
-          <Check id="tiktok" label="Seguir en TikTok" link="https://www.tiktok.com/@gridial" state={follow} setState={setFollow}/>
-          <Check id="twitch" label="Seguir en Twitch" link="https://www.twitch.tv/gridial" state={follow} setState={setFollow}/>
-          <Check id="youtube" label="Suscribirse en YouTube" link="https://www.youtube.com/@gridial" state={follow} setState={setFollow}/>
-          <Check id="facebook" label="Seguir en Facebook" link="https://www.facebook.com/gridial" state={follow} setState={setFollow}/>
+        <div className="form-field">
+          <label>Usuario visible *</label>
+          <input
+            placeholder="@tu_usuario"
+            value={usuario}
+            onChange={e => setUsuario(e.target.value)}
+            required
+          />
         </div>
 
-        <p style={{marginTop:8}}><b>Entradas totales:</b> {entries} (1 por registro + 1 por cada red seguida)</p>
-        <button className="btn" onClick={submit}>Enviar participación</button>
+        <div className="form-wide">
+          <label>Redes donde me sigues (+1 por cada una)</label>
+          <div className="redez-wrap">
+            {REDES.map(r => (
+              <div key={r.key} className={`redez-pill ${redes[r.key] ? "on" : ""}`}>
+                <button
+                  type="button"
+                  className={`badge badge-${r.key}`}
+                  onClick={() => toggleRed(r.key)}
+                  aria-pressed={!!redes[r.key]}
+                >
+                  {r.label} {redes[r.key] ? "✓" : ""}
+                </button>
+                <a className="go" href={r.url} target="_blank" rel="noreferrer">Visitar</a>
+              </div>
+            ))}
+          </div>
+          <p className="meta">
+            * En la <b>fase 2</b> la página verificará automáticamente si sigues cada perfil.
+          </p>
+        </div>
 
-        <p className="meta" style={{marginTop:8}}>
-          * En producción se verificará que las cuentas realmente sigan las páginas.
-          Este demo no guarda datos (falta conectar Supabase).
-        </p>
-      </div>
+        <div className="form-wide">
+          <label className="checkline">
+            <input type="checkbox" checked={acepto} onChange={e => setAcepto(e.target.checked)} />
+            <span>
+              Confirmo que los datos son reales y acepto que intentos de fraude implican exclusión.  
+              Revisa las <Link href="/bases">bases</Link> y la <Link href="/privacidad">política de privacidad</Link>.
+            </span>
+          </label>
+        </div>
 
-      <div className="card">
-        <h3>Fechas</h3>
-        <ul>
-          <li>Inicio: anunciar en GridialHub.com</li>
-          <li>Cierre: anunciar en GridialHub.com</li>
-          <li>Sorteo: en vivo por Twitch y TikTok Live</li>
-        </ul>
-      </div>
-    </div>
-  );
-}
+        <div className="form-wide" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
+          <div className="meta">Entradas totales si envías ahora: <b>{entradas}</b></div>
+          <button className="btn" disabled={enviando} style={{ minWidth: 180 }}>
+            {enviando ? "Enviando..." : "Enviar participación"}
+          </button>
+        </div>
 
-function Check({ id, label, link, state, setState }) {
-  const checked = state[id];
-  return (
-    <div className="card" style={{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
-      <div>
-        <div style={{fontWeight:700}}>{label}</div>
-        <a href={link} target="_blank" className="meta" rel="noreferrer">Abrir perfil</a>
+        {err && <div className="alert error">{err}</div>}
+        {ok && <div className="alert ok">{ok}</div>}
+      </form>
+
+      <hr />
+
+      <div className="meta">
+        No afiliado ni patrocinado por TikTok, Twitch, YouTube, Facebook, Kick o Steam.  
+        Premios: saldo de Steam, tarjeta de regalo, pase de batalla o monedas del juego (hasta el monto correspondiente).
       </div>
-      <label style={{display:"flex", alignItems:"center", gap:8}}>
-        <input type="checkbox" checked={checked} onChange={e=>setState({...state, [id]:e.target.checked})} />
-        Marcado
-      </label>
     </div>
   );
 }
