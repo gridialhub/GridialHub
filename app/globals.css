@@ -190,3 +190,49 @@ nav a.active { opacity: 1; text-decoration: underline; }
 
 /* Seguridad extra: no bajes contraste dentro de .card */
 .card * { filter: none; }
+/* ====== Colores oficiales para cada red ====== */
+.badge-tiktok {
+  border-color: #ff0050;
+  color: #ff0050;
+}
+.badge-tiktok:hover {
+  background: #ff0050;
+  color: #fff;
+}
+
+.badge-twitch {
+  border-color: #9146ff;
+  color: #9146ff;
+}
+.badge-twitch:hover {
+  background: #9146ff;
+  color: #fff;
+}
+
+.badge-youtube {
+  border-color: #ff0000;
+  color: #ff0000;
+}
+.badge-youtube:hover {
+  background: #ff0000;
+  color: #fff;
+}
+
+.badge-facebook {
+  border-color: #1877f2;
+  color: #1877f2;
+}
+.badge-facebook:hover {
+  background: #1877f2;
+  color: #fff;
+}
+
+.badge-kick {
+  border-color: #52ff00;
+  color: #52ff00;
+}
+.badge-kick:hover {
+  background: #52ff00;
+  color: #111;
+}
+
