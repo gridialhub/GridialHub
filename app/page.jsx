@@ -121,7 +121,7 @@ export default function Home() {
   </a>
 
   {/* Kick */}
-  <a className="badge badge-kick" href="https://kick.com/gridial" target="_blank" rel="noreferrer">
+  <a className="badge badge-kick" href="https://kick.com/gridialtv" target="_blank" rel="noreferrer">
     <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
       <!-- K geométrica -->
       <path d="M6 4h3v7l4-4h3l-4.5 4.5L16 20h-3l-4-5v5H6V4z"></path>
@@ -138,6 +138,7 @@ export default function Home() {
     </div>
   );
 }
+
 
 
 
