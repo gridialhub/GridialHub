@@ -1,3 +1,6 @@
+/* =========================
+   VARIABLES Y BASE
+   ========================= */
 :root {
   --bg: #0b0b0d;
   --fg: #f3f4f6;
@@ -6,35 +9,81 @@
   --brand: #e879f9;
   --border: #2a2a2f;
 }
+
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+html, body {
+  margin: 0; padding: 0;
+  background: var(--bg); color: var(--fg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
 a { color: var(--fg); text-decoration: none; }
+
 .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
 .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px; }
-.btn { display: inline-block; background: var(--brand); color: #111; padding: 10px 14px; border-radius: 10px; font-weight: 700; }
+
+.btn {
+  display: inline-block; background: var(--brand); color: #111;
+  padding: 10px 14px; border-radius: 10px; font-weight: 700;
+  opacity: 1 !important;
+  box-shadow: 0 6px 16px color-mix(in oklab, #000, var(--brand) 20%);
+  transform: translateY(0);
+  transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn.btn-secondary {
+  background: transparent;
+  border: 1px solid color-mix(in oklab, var(--border), var(--brand) 18%);
+  color: var(--fg);
+  box-shadow: none;
+}
+.btn.btn-link { background: transparent; border: 1px solid var(--border); color: var(--fg); }
+
 .grid { display: grid; gap: 16px; }
 .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
 .meta { color: var(--muted); font-size: 12px; }
 h1, h2, h3 { margin: 0 0 8px; }
 hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
-input, textarea { width: 100%; padding: 10px; border-radius: 10px; border: 1px solid var(--border); background: #0f0f12; color: var(--fg); }
+
+input, textarea {
+  width: 100%; padding: 10px; border-radius: 10px;
+  border: 1px solid var(--border); background: #0f0f12; color: var(--fg);
+}
 label { font-size: 14px; color: var(--muted); display: block; margin: 10px 0 6px; }
+
 nav a { opacity: .9; }
 nav a.active { opacity: 1; text-decoration: underline; }
-.badge { display:inline-block; background:#22232a; border:1px solid var(--border); padding:3px 8px; border-radius:999px; font-size:12px; color:var(--muted)}
-/* ====== INICIO (HOME) ====== */
+
+.badge {
+  display:inline-block; background:#22232a; border:1px solid var(--border);
+  padding:3px 8px; border-radius:999px; font-size:12px; color:var(--muted)
+}
+
+/* =========================
+   HEADER: NAV “PILL”
+   ========================= */
+.nav-pill {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--card), transparent 20%);
+  box-shadow: 0 6px 22px color-mix(in oklab, #000, var(--brand) 12%);
+}
+.navlink { color: var(--fg); opacity: .9; padding: 8px 12px; border-radius: 12px; font-weight: 600; font-size: 14px; }
+.navlink:hover { opacity: 1; background: color-mix(in oklab, var(--card), transparent 40%); }
+.navlink.active { color: var(--brand); background: color-mix(in oklab, var(--card), transparent 30%); }
+
+/* =========================
+   HOME / HERO
+   ========================= */
 .home { display: grid; gap: 24px; }
 
-/* HERO */
 .hero {
-  position: relative;
-  overflow: hidden;
-  padding: 0;
+  position: relative; overflow: hidden; padding: 0;
 }
 .hero__bg {
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0; z-index: 0;
   background:
     radial-gradient(80% 60% at 0% 0%, rgba(0,165,255,0.22), transparent 60%),
     radial-gradient(80% 60% at 100% 0%, rgba(255,0,80,0.18), transparent 60%),
@@ -42,122 +91,89 @@ nav a.active { opacity: 1; text-decoration: underline; }
   filter: saturate(1.1);
   pointer-events: none;
 }
+/* Asegura contenido al frente */
+.card .container, .hero__content { position: relative; z-index: 1; }
+
 .hero__content {
-  position: relative;
-  display: grid;
-  gap: 16px;
+  display: grid; gap: 16px;
   grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
   padding: 24px;
 }
-@media (max-width: 900px) {
-  .hero__content { grid-template-columns: 1fr; }
-}
+@media (max-width: 900px) { .hero__content { grid-template-columns: 1fr; } }
 
 .hero__text { display: grid; gap: 10px; }
 .chip {
-  display: inline-block;
-  font-size: 12px;
-  color: var(--muted);
-  border: 1px solid var(--border);
-  padding: 2px 8px;
-  border-radius: 999px;
+  display: inline-block; font-size: 12px; color: var(--muted);
+  border: 1px solid var(--border); padding: 2px 8px; border-radius: 999px;
 }
 .hero-title { font-size: clamp(28px, 4vw, 44px); line-height: 1.1; font-weight: 900; margin: 6px 0; }
 .hero-sub { color: var(--muted); margin-bottom: 4px; }
 .hero-desc { opacity: .95; }
-
 .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
 .hero-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
 
-/* Panel lateral tipo glass */
+/* Panel lateral “glass” (si lo usas en otras páginas) */
 .glass {
-  width: 100%;
-  max-width: 380px;
-  margin-left: auto;
+  width: 100%; max-width: 380px; margin-left: auto;
   border: 1px solid color-mix(in oklab, var(--border), var(--brand) 18%);
-  border-radius: 16px;
-  padding: 14px;
+  border-radius: 16px; padding: 14px;
   background: color-mix(in oklab, var(--card), transparent 12%);
   box-shadow: 0 10px 30px color-mix(in oklab, #000, var(--brand) 18%);
 }
 .glass-row {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 10px 6px;
-  border-bottom: 1px dashed var(--border);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:10px 6px; border-bottom:1px dashed var(--border);
 }
 .glass-row:last-child { border-bottom: none; }
 
-/* STATS */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px;
+/* =========================
+   INTRO (texto claro)
+   ========================= */
+.intro-box {
+  border: 1px solid color-mix(in oklab, var(--border), var(--brand) 22%);
+  border-radius: 16px; padding: 18px;
+  background: color-mix(in oklab, var(--card), transparent 6%);
+  box-shadow: 0 10px 26px color-mix(in oklab, #000, var(--brand) 18%);
 }
-@media (max-width: 700px) {
-  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.intro-text { color: var(--fg); opacity: 1; }
+.intro-text b { font-weight: 800; color: var(--fg); }
+
+/* =========================
+   STATS (si lo usas)
+   ========================= */
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+@media (max-width: 700px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.stat {
+  text-align: center; padding: 14px; border-radius: 14px;
+  background: color-mix(in oklab, var(--card), transparent 10%);
+  border: 1px solid var(--border);
 }
-.stat { text-align: center; padding: 14px; border-radius: 14px; background: color-mix(in oklab, var(--card), transparent 10%); border: 1px solid var(--border); }
-.stat__num { font-weight: 900; font-size: 28px; line-height: 1; margin-bottom: 6px; background: linear-gradient(90deg, var(--brand), color-mix(in oklab, var(--brand), #9333ea 45%)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.stat__num {
+  font-weight: 900; font-size: 28px; line-height: 1; margin-bottom: 6px;
+  background: linear-gradient(90deg, var(--brand), color-mix(in oklab, var(--brand), #9333ea 45%));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
 .stat__label { color: var(--muted); font-size: 13px; }
 
-/* Botones secundarios como links */
-.btn.btn-link { background: transparent; border: 1px solid var(--border); color: var(--fg); }
-.btn.btn-chip { background: transparent; border: 1px solid var(--border); color: var(--fg); padding: 6px 10px; border-radius: 999px; font-weight: 600; }
-
-/* ====== HEADER pill nav ====== */
-.nav-pill {
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: color-mix(in oklab, var(--card), transparent 20%);
-  box-shadow: 0 6px 22px color-mix(in oklab, #000, var(--brand) 12%);
-}
-.navlink { color: var(--fg); opacity: .9; }
-.navlink:hover { opacity: 1; background: color-mix(in oklab, var(--card), transparent 40%); }
-.navlink.active { color: var(--brand); background: color-mix(in oklab, var(--card), transparent 30%); }
-
-/* ====== HERO BG ====== */
-.hero__bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(80% 60% at 0% 0%, rgba(0,165,255,0.20), transparent 60%),
-    radial-gradient(80% 60% at 100% 0%, rgba(255,0,80,0.16), transparent 60%),
-    linear-gradient(180deg, color-mix(in oklab, var(--card), transparent 10%), color-mix(in oklab, var(--card), transparent 10%));
-  filter: saturate(1.1);
-  pointer-events: none;
-}
-
-/* ====== INTRO BOX ====== */
-.intro-box {
-  border: 1px solid color-mix(in oklab, var(--border), var(--brand) 18%);
-  border-radius: 16px;
-  padding: 18px;
-  background: color-mix(in oklab, var(--card), transparent 10%);
-  box-shadow: 0 8px 26px color-mix(in oklab, #000, var(--brand) 14%);
-}
-.intro-text { color: var(--fg); opacity: .95; }
-
-/* ====== POSTS GRID ====== */
+/* =========================
+   GRILLA “ÚLTIMOS ARTÍCULOS”
+   ========================= */
 .post-grid {
-  display: grid;
+  display: grid; gap: 14px; margin-top: 14px;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 14px;
 }
 @media (max-width: 1050px) { .post-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .post-grid { grid-template-columns: 1fr; } }
 
 .post-card {
-  display: grid;
-  grid-template-rows: 140px auto;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
-  background: var(--card);
+  display: grid; grid-template-rows: 140px auto;
+  border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background: var(--card);
 }
 .post-body { padding: 12px; display: grid; gap: 8px; }
+.post-body h4, .post-body h4 a { margin: 0; color: var(--fg); }
+.post-body h4 a:hover { color: var(--brand); }
 
-/* Thumbs de ejemplo (placeholders visuales) */
+/* Placeholders de miniaturas con degradé */
 .post-thumb { width: 100%; height: 100%; background-size: cover; background-position: center; }
 .thumb-game {
   background-image: linear-gradient(135deg, rgba(0,160,255,.45), rgba(233,79,113,.45)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E");
@@ -171,50 +187,6 @@ nav a.active { opacity: 1; text-decoration: underline; }
 .thumb-social {
   background-image: linear-gradient(135deg, rgba(34,197,94,.45), rgba(244,63,94,.45)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E");
 }
-/* ——— PARCHE DE CONTRASTE PARA EL HERO ——— */
 
-/* Asegura que el fondo quede ATRÁS y el contenido ADELANTE */
-.hero__bg { z-index: 0; }
-.hero .container,
-.hero__content { position: relative; z-index: 1; }
-
-/* Más brillo en el título del hero */
-.intro-box h2 {
-  color: var(--fg);
-  font-weight: 900;
-  letter-spacing: .2px;
-}
-
-/* Texto sin desvanecer */
-.intro-text { color: var(--fg); opacity: 1; }
-.intro-text b { font-weight: 800; color: var(--fg); }
-
-/* Caja con un poco más de luz */
-.intro-box {
-  background: color-mix(in oklab, var(--card), transparent 6%);
-  border: 1px solid color-mix(in oklab, var(--border), var(--brand) 22%);
-  box-shadow: 0 10px 26px color-mix(in oklab, #000, var(--brand) 18%);
-}
-
-/* Botones más “vivos” */
-.btn {
-  opacity: 1 !important;
-  box-shadow: 0 6px 16px color-mix(in oklab, #000, var(--brand) 20%);
-  transform: translateY(0);
-  transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
-}
-.btn:hover { transform: translateY(-1px); }
-.btn:active { transform: translateY(0); }
-
-/* Secundario legible en oscuro */
-.btn.btn-secondary {
-  background: transparent;
-  border: 1px solid color-mix(in oklab, var(--border), var(--brand) 18%);
-  color: var(--fg);
-  box-shadow: none;
-}
-
-/* Por si alguna regla global baja opacidades dentro de .card */
+/* Seguridad extra: no bajes contraste dentro de .card */
 .card * { filter: none; }
-
-
