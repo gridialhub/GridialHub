@@ -1,16 +1,19 @@
 export default function Resultados() {
-  const ganadoresDemo = ["@user_1", "@user_2", "@user_3", "@user_4", "@user_5"];
+  // Cuando tengas ganadores reales, rellena la tabla o lista.
+  const ganadores = []; // ejemplo: [{usuario:"@Pepito", premio:"$40 Steam"}]
+
   return (
-    <div className="grid" style={{gap:16}}>
-      <div className="card">
-        <h1>Resultados y transparencia</h1>
-        <p className="meta">Aquí publicaremos los ganadores y el CSV de auditoría por cada sorteo.</p>
-        <h3>Ganadores (demo)</h3>
+    <div className="card">
+      <h1>Resultados</h1>
+      {ganadores.length === 0 ? (
+        <p className="meta">Aún no hay resultados publicados. Vuelve después del sorteo en vivo.</p>
+      ) : (
         <ul>
-          {ganadoresDemo.map(g => <li key={g}>{g}</li>)}
+          {ganadores.map((g,i)=>(
+            <li key={i}><b>{g.usuario}</b> — {g.premio}</li>
+          ))}
         </ul>
-        <p className="meta">* En producción, aquí se enlaza el CSV exportado y la “seed” del sorteo.</p>
-      </div>
+      )}
     </div>
   );
 }
