@@ -79,13 +79,14 @@ export default function Home() {
             <div className="post-body">
               <h4>Redes y canales</h4>
               <p className="meta">Sígueme para sumar oportunidades</p>
-              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                <a className="badge" href="https://www.tiktok.com/@gridial" target="_blank" rel="noreferrer">TikTok</a>
-                <a className="badge" href="https://www.twitch.tv/gridialtv" target="_blank" rel="noreferrer">Twitch</a>
-                <a className="badge" href="https://www.youtube.com/@Gridial" target="_blank" rel="noreferrer">YouTube</a>
-                <a className="badge" href="https://www.facebook.com/GridialOfficial" target="_blank" rel="noreferrer">Facebook</a>
-                <a className="badge" href="https://kick.com/gridial" target="_blank" rel="noreferrer">Kick</a>
-              </div>
+             <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+  <a className="badge badge-tiktok" href="https://www.tiktok.com/@gridial" target="_blank" rel="noreferrer">TikTok</a>
+  <a className="badge badge-twitch" href="https://www.twitch.tv/gridialtv" target="_blank" rel="noreferrer">Twitch</a>
+  <a className="badge badge-youtube" href="https://www.youtube.com/@Gridial" target="_blank" rel="noreferrer">YouTube</a>
+  <a className="badge badge-facebook" href="https://www.facebook.com/GridialOfficial" target="_blank" rel="noreferrer">Facebook</a>
+  <a className="badge badge-kick" href="https://kick.com/gridial" target="_blank" rel="noreferrer">Kick</a>
+</div>
+
             </div>
           </article>
         </div>
@@ -93,4 +94,5 @@ export default function Home() {
     </div>
   );
 }
+
 
