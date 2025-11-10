@@ -171,4 +171,50 @@ nav a.active { opacity: 1; text-decoration: underline; }
 .thumb-social {
   background-image: linear-gradient(135deg, rgba(34,197,94,.45), rgba(244,63,94,.45)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E");
 }
+/* ——— PARCHE DE CONTRASTE PARA EL HERO ——— */
+
+/* Asegura que el fondo quede ATRÁS y el contenido ADELANTE */
+.hero__bg { z-index: 0; }
+.hero .container,
+.hero__content { position: relative; z-index: 1; }
+
+/* Más brillo en el título del hero */
+.intro-box h2 {
+  color: var(--fg);
+  font-weight: 900;
+  letter-spacing: .2px;
+}
+
+/* Texto sin desvanecer */
+.intro-text { color: var(--fg); opacity: 1; }
+.intro-text b { font-weight: 800; color: var(--fg); }
+
+/* Caja con un poco más de luz */
+.intro-box {
+  background: color-mix(in oklab, var(--card), transparent 6%);
+  border: 1px solid color-mix(in oklab, var(--border), var(--brand) 22%);
+  box-shadow: 0 10px 26px color-mix(in oklab, #000, var(--brand) 18%);
+}
+
+/* Botones más “vivos” */
+.btn {
+  opacity: 1 !important;
+  box-shadow: 0 6px 16px color-mix(in oklab, #000, var(--brand) 20%);
+  transform: translateY(0);
+  transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+/* Secundario legible en oscuro */
+.btn.btn-secondary {
+  background: transparent;
+  border: 1px solid color-mix(in oklab, var(--border), var(--brand) 18%);
+  color: var(--fg);
+  box-shadow: none;
+}
+
+/* Por si alguna regla global baja opacidades dentro de .card */
+.card * { filter: none; }
+
 
