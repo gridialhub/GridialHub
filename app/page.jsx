@@ -84,6 +84,7 @@ export default function Home() {
                 <a className="badge" href="https://www.twitch.tv/gridialtv" target="_blank" rel="noreferrer">Twitch</a>
                 <a className="badge" href="https://www.youtube.com/@Gridial" target="_blank" rel="noreferrer">YouTube</a>
                 <a className="badge" href="https://www.facebook.com/GridialOfficial" target="_blank" rel="noreferrer">Facebook</a>
+                <a className="badge" href="https://kick.com/gridial" target="_blank" rel="noreferrer">Kick</a>
               </div>
             </div>
           </article>
@@ -92,3 +93,4 @@ export default function Home() {
     </div>
   );
 }
+
