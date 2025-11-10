@@ -105,7 +105,14 @@ export default function Home() {
             <div className="post-thumb thumb-social" />
             <div className="post-body">
               <h4>Mis redes y canales</h4>
-              <p className="meta
-
-
-
+              <p className="meta">TikTok, Twitch, YouTube y Facebook</p>
+              <a className="btn btn-link" href="/sorteos">
+                Ver perfiles
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  );
+}
