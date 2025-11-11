@@ -1,10 +1,11 @@
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import PageTransition from "./components/PageTransition";
 
 export const metadata = {
   title: "GridialHub — Comunidad & Sorteos Gaming",
-  description: "Sorteos transparentes, artículos y comunidad gaming global."
+  description: "Sorteos transparentes, artículos y comunidad gaming global.",
 };
 
 export default function RootLayout({ children }) {
@@ -12,10 +13,12 @@ export default function RootLayout({ children }) {
     <html lang="es">
       <body>
         <Header />
-        <main className="container">{children}</main>
+        <PageTransition>
+          <main className="container">{children}</main>
+        </PageTransition>
         <Footer />
 
-        {/* ===== Script de animaciones suaves ===== */}
+        {/* Script para revelar elementos al hacer scroll */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
