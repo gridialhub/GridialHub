@@ -355,5 +355,18 @@ nav a.active { opacity: 1; text-decoration: underline; }
 .social-facebook:hover { background: color-mix(in oklab, #1877f2, var(--card) 82%); }
 .social-kick:hover     { background: color-mix(in oklab, #52ff00, var(--card) 86%); }
 
+/* Bases: pequeños ajustes visuales */
+#eligibilidad ul,
+#premios ul,
+#participacion ul,
+#sorteo ul,
+#notificacion ul,
+#fraude ul,
+#limitaciones ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  line-height: 1.55;
+}
+
 
 
