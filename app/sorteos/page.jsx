@@ -43,6 +43,10 @@ export default function Sorteos() {
           El sorteo se realizará en directo y todo el proceso será transparente.
           <br />
           <br />
+          Para conocer las <b>reglas y bases del sorteo</b>, visita la sección{" "}
+          <b>“Bases”</b> ubicada en el menú superior de la página.
+          <br />
+          <br />
           <b>
             Conforme vayamos creciendo como comunidad, mejores sorteos vendrán a futuro.
           </b>
@@ -164,4 +168,5 @@ export default function Sorteos() {
     </div>
   );
 }
+
 
