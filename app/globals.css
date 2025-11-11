@@ -468,6 +468,40 @@ nav a.active { opacity: 1; text-decoration: underline; }
 .logo:hover {
   filter: brightness(1.2);
 }
+/* ====== FASE 2 — ANIMACIONES SUAVES ====== */
+
+/* --- Aparición suave al hacer scroll --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Brillo leve en íconos y botones --- */
+.btn:hover,
+.navlink:hover,
+.email-link a:hover {
+  filter: drop-shadow(0 0 8px color-mix(in oklab, var(--brand), #fff 40%));
+}
+
+/* --- Pulso lento para botones principales --- */
+.btn {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+@keyframes pulseGlow {
+  0%,100% { box-shadow: 0 0 12px color-mix(in oklab, var(--brand-glow), #000 70%); }
+  50% { box-shadow: 0 0 20px color-mix(in oklab, var(--brand-glow), #fff 30%); }
+}
+
+/* --- Transición general al pasar por cualquier enlace --- */
+a, button {
+  transition: all .25s ease-in-out;
+}
+
 
 
 
