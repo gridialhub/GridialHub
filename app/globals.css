@@ -1,3 +1,35 @@
+/* ====== FUENTES Y BASE GLOBAL ====== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
+html, body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+  font-weight: 900;
+  letter-spacing: -0.3px;
+}
+
+p, li {
+  line-height: 1.6;
+}
+
+/* ====== COLORES ACTUALIZADOS ====== */
+:root {
+  --bg: #0b0b0d;
+  --fg: #f8f9fa;
+  --muted: #9ca3af;
+  --card: #16161a;
+  --brand: #c084fc; /* tono violeta moderno */
+  --brand-glow: #9333ea; /* brillo neón */
+  --border: #2a2a2f;
+}
+
 /* =========================
    VARIABLES Y BASE
    ========================= */
@@ -383,6 +415,60 @@ nav a.active { opacity: 1; text-decoration: underline; }
     0 0 16px color-mix(in oklab, var(--brand), #fff 60%);
   transform: scale(1.03);
 }
+/* ====== EFECTOS GLOBALES ====== */
+
+/* Sombras suaves y uniformes */
+.card {
+  box-shadow: 0 8px 28px color-mix(in oklab, var(--brand-glow), #000 70%);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px color-mix(in oklab, var(--brand-glow), #000 50%);
+}
+
+/* Botones refinados */
+.btn {
+  background: linear-gradient(135deg, var(--brand), var(--brand-glow));
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 20px color-mix(in oklab, var(--brand-glow), #000 60%);
+  transition: all 0.25s ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+/* Navegación con leve brillo */
+.navlink {
+  position: relative;
+  padding: 6px 12px;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+.navlink:hover {
+  background: color-mix(in oklab, var(--brand-glow), transparent 80%);
+  color: #fff;
+}
+
+/* Logo principal animado */
+.logo {
+  font-size: 22px;
+  font-weight: 900;
+  background: linear-gradient(90deg, var(--brand), var(--brand-glow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: filter 0.2s ease;
+}
+.logo:hover {
+  filter: brightness(1.2);
+}
+
 
 
 
