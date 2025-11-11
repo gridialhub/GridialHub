@@ -55,7 +55,7 @@ export default function Contacto() {
               const domain = "gridialhub.com";
               const el = document.getElementById("mail");
               if (el) {
-                el.innerHTML = '<a href="mailto:' + user + '@' + domain + '" style="color:#e879f9;font-weight:600;text-decoration:none;">' + user + '@' + domain + '</a>';
+                el.innerHTML = '<span class="email-link"><a href="mailto:' + user + '@' + domain + '">' + user + '@' + domain + '</a></span>';
               }
             `,
           }}
@@ -134,3 +134,4 @@ export default function Contacto() {
     </div>
   );
 }
+
