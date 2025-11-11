@@ -367,6 +367,23 @@ nav a.active { opacity: 1; text-decoration: underline; }
   padding-left: 18px;
   line-height: 1.55;
 }
+/* ==== ESTILO PARA EL CORREO EN LA SECCIÓN DE CONTACTO ==== */
+.email-link a {
+  color: var(--brand);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px color-mix(in oklab, var(--brand), #fff 40%);
+}
+
+.email-link a:hover {
+  color: #fff;
+  text-shadow:
+    0 0 8px color-mix(in oklab, var(--brand), #fff 60%),
+    0 0 16px color-mix(in oklab, var(--brand), #fff 60%);
+  transform: scale(1.03);
+}
+
 
 
 
