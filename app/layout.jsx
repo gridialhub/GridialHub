@@ -4,17 +4,36 @@ import Footer from "./components/Footer";
 
 export const metadata = {
   title: "GridialHub — Comunidad & Sorteos Gaming",
-  description: "Sorteos transparentes, artículos y comunidad gaming global."
+  description: "Sorteos transparentes, artículos y comunidad gaming global.",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
       <body>
         <Header />
         <main className="container">{children}</main>
         <Footer />
+
+        {/* ===== Script de animaciones suaves ===== */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              const revealEls = document.querySelectorAll('.reveal');
+              const reveal = () => {
+                const vh = window.innerHeight * 0.85;
+                revealEls.forEach(el => {
+                  const rect = el.getBoundingClientRect();
+                  if (rect.top < vh) el.classList.add('visible');
+                });
+              };
+              document.addEventListener('scroll', reveal);
+              window.addEventListener('load', reveal);
+            `,
+          }}
+        />
       </body>
     </html>
   );
 }
+
