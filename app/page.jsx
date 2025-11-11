@@ -80,16 +80,15 @@ export default function Home() {
               <h4>Redes y canales</h4>
               <p className="meta">Sígueme para sumar oportunidades</p>
              <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
-  {/* TikTok */}
-  <a className="badge badge-tiktok" href="https://www.tiktok.com/@gridial" target="_blank" rel="noreferrer">
-    <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
-      {/* nota musical simple */}
-      <circle cx="9" cy="17" r="3"></circle>
-      <rect x="11" y="3" width="2.2" height="10" rx="1.1"></rect>
-      <path d="M13.2 6c1.2 1.4 2.8 2.3 4.8 2.4v2.2c-2.1-.1-3.8-.8-5-1.9V6z"></path>
-    </svg>
-    TikTok
-  </a>
+{/* TikTok */}
+<a className="badge badge-tiktok" href="https://www.tiktok.com/@gridial" target="_blank" rel="noreferrer">
+  <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
+    <circle cx="9" cy="17" r="3"></circle>
+    <rect x="11" y="3" width="2.2" height="10" rx="1.1"></rect>
+    <path d="M13.2 6c1.2 1.4 2.8 2.3 4.8 2.4v2.2c-2.1-.1-3.8-.8-5-1.9V6z"></path>
+  </svg>
+  TikTok
+</a>
 
   {/* Twitch */}
   <a className="badge badge-twitch" href="https://www.twitch.tv/gridialtv" target="_blank" rel="noreferrer">
@@ -138,6 +137,7 @@ export default function Home() {
     </div>
   );
 }
+
 
 
 
