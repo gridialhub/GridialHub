@@ -1,6 +1,18 @@
+import { useEffect } from "react";
 import Link from "next/link";
 
 export default function Home() {
+  // Reaplica las animaciones reveal cada vez que se monta la página de inicio
+  useEffect(() => {
+    const els = document.querySelectorAll(".reveal");
+    els.forEach((el, i) => {
+      // Limpia estado previo por si quedó visible
+      el.classList.remove("visible");
+      // Pequeño delay escalonado para la entrada suave
+      setTimeout(() => el.classList.add("visible"), 120 * i);
+    });
+  }, []);
+
   return (
     <div className="home" style={{ display: "grid", gap: 24 }}>
       {/* HERO: introducción + botón */}
@@ -117,9 +129,7 @@ export default function Home() {
             <div className="post-thumb thumb-social" />
             <div className="post-body">
               <h4>Redes y canales</h4>
-              <p className="meta">
-                Sígueme para sumar oportunidades
-              </p>
+              <p className="meta">Sígueme para sumar oportunidades</p>
 
               <div
                 style={{
@@ -136,19 +146,9 @@ export default function Home() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <svg
-                    className="icon"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
+                  <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
                     <circle cx="9" cy="17" r="3"></circle>
-                    <rect
-                      x="11"
-                      y="3"
-                      width="2.2"
-                      height="10"
-                      rx="1.1"
-                    ></rect>
+                    <rect x="11" y="3" width="2.2" height="10" rx="1.1"></rect>
                     <path d="M13.2 6c1.2 1.4 2.8 2.3 4.8 2.4v2.2c-2.1-.1-3.8-.8-5-1.9V6z"></path>
                   </svg>
                   TikTok
@@ -161,26 +161,10 @@ export default function Home() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <svg
-                    className="icon"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
+                  <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M5 3h14v9.5l-3.5 3.5H12l-2 2H8v-2H5V3z"></path>
-                    <rect
-                      x="9"
-                      y="7"
-                      width="2.5"
-                      height="3.2"
-                      rx="0.4"
-                    ></rect>
-                    <rect
-                      x="13.5"
-                      y="7"
-                      width="2.5"
-                      height="3.2"
-                      rx="0.4"
-                    ></rect>
+                    <rect x="9" y="7" width="2.5" height="3.2" rx="0.4"></rect>
+                    <rect x="13.5" y="7" width="2.5" height="3.2" rx="0.4"></rect>
                   </svg>
                   Twitch
                 </a>
@@ -192,18 +176,8 @@ export default function Home() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <svg
-                    className="icon"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <rect
-                      x="3"
-                      y="6.5"
-                      width="18"
-                      height="11"
-                      rx="3"
-                    ></rect>
+                  <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="6.5" width="18" height="11" rx="3"></rect>
                     <path d="M10 9l6 3-6 3V9z"></path>
                   </svg>
                   YouTube
@@ -216,11 +190,7 @@ export default function Home() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <svg
-                    className="icon"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
+                  <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M13 10h3V7h-3c-2 0-3.5 1.5-3.5 3.5V13H7v3h2.5v4h3v-4H16v-3h-3v-1.5c0-.6.4-1 1-1z"></path>
                   </svg>
                   Facebook
@@ -233,11 +203,7 @@ export default function Home() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <svg
-                    className="icon"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
+                  <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M6 4h3v7l4-4h3l-4.5 4.5L16 20h-3l-4-5v5H6V4z"></path>
                   </svg>
                   Kick
