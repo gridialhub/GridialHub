@@ -307,5 +307,53 @@ nav a.active { opacity: 1; text-decoration: underline; }
 .badge-kick { border-color:#52ff00; color:#52ff00; }
 .badge-kick:hover { background:#52ff00; color:#111; }
 
+/* ====== Botones sociales 2cm x 2cm ====== */
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 2cm);
+  gap: 10px;
+  justify-content: center;
+}
+@media (max-width: 900px) { .social-grid { grid-template-columns: repeat(3, 2cm); } }
+@media (max-width: 600px) { .social-grid { grid-template-columns: repeat(2, 2cm); } }
+
+.social-btn {
+  width: 2cm;
+  height: 2cm;
+  min-width: 78px;   /* fallback por si el navegador ignora cm */
+  min-height: 78px;  /* ~ 2cm a 96dpi */
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--card), transparent 8%);
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+}
+.social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px color-mix(in oklab, #000, var(--brand) 20%);
+}
+
+/* Ícono dentro del botón (hereda color) */
+.social-ico {
+  width: 38px;
+  height: 38px;
+  fill: currentColor;
+}
+
+/* Colores por red (borde + texto) */
+.social-tiktok   { color:#ff0050; border-color:#ff0050; }
+.social-twitch   { color:#9146ff; border-color:#9146ff; }
+.social-youtube  { color:#ff0000; border-color:#ff0000; }
+.social-facebook { color:#1877f2; border-color:#1877f2; }
+.social-kick     { color:#52ff00; border-color:#52ff00; }
+
+/* Fondo en hover con buen contraste */
+.social-tiktok:hover   { background: color-mix(in oklab, #ff0050, var(--card) 80%); }
+.social-twitch:hover   { background: color-mix(in oklab, #9146ff, var(--card) 80%); }
+.social-youtube:hover  { background: color-mix(in oklab, #ff0000, var(--card) 82%); }
+.social-facebook:hover { background: color-mix(in oklab, #1877f2, var(--card) 82%); }
+.social-kick:hover     { background: color-mix(in oklab, #52ff00, var(--card) 86%); }
+
 
 
