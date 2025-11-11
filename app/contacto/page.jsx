@@ -34,13 +34,32 @@ export default function Contacto() {
 
   return (
     <div className="container" style={{ display: "grid", gap: 24 }}>
-      <header className="card" style={{ padding: 24, borderRadius: 16, textAlign: "center" }}>
-        <h1 style={{ fontSize: "clamp(26px,3vw,38px)", fontWeight: 900 }}>Contacto</h1>
+      <header
+        className="card"
+        style={{ padding: 24, borderRadius: 16, textAlign: "center" }}
+      >
+        <h1 style={{ fontSize: "clamp(26px,3vw,38px)", fontWeight: 900 }}>
+          Contacto
+        </h1>
         <p className="meta">
           ¿Tienes dudas, propuestas o quieres colaborar con GridialHub?  
           Puedes escribirme directamente desde este formulario o al correo{" "}
-          <b>contact@gridialhub.com</b>.
+          <span id="mail"></span>.
         </p>
+
+        {/* Script antispam: genera el correo dinámicamente */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              const user = "contact";
+              const domain = "gridialhub.com";
+              const el = document.getElementById("mail");
+              if (el) {
+                el.innerHTML = '<a href="mailto:' + user + '@' + domain + '" style="color:#e879f9;font-weight:600;text-decoration:none;">' + user + '@' + domain + '</a>';
+              }
+            `,
+          }}
+        />
       </header>
 
       <form
