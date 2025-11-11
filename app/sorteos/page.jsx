@@ -1,10 +1,9 @@
 "use client";
-import Link from "next/link";
 
 export default function Sorteos() {
   return (
     <div className="container" style={{ display: "grid", gap: 28 }}>
-      {/* Título principal */}
+      {/* Título */}
       <h1
         style={{
           fontSize: "clamp(26px, 3vw, 38px)",
@@ -32,7 +31,8 @@ export default function Sorteos() {
         Participan mis seguidores en las distintas plataformas donde estoy
         activo (<b>TikTok</b>, <b>Twitch</b>, <b>YouTube</b>, <b>Facebook</b> y{" "}
         <b>Kick</b>). El sorteo se realizará en directo y todo el proceso será
-        transparente. <br />
+        transparente.
+        <br />
         <br />
         <b>
           Conforme vayamos creciendo como comunidad, mejores sorteos vendrán a
@@ -55,7 +55,7 @@ export default function Sorteos() {
         Mientras en más redes me sigas, ¡más oportunidades tienes de ganar!
       </h3>
 
-      {/* Botones de redes */}
+      {/* Botones 1 cm (≈38px) con hover */}
       <div
         style={{
           display: "flex",
@@ -109,20 +109,26 @@ export default function Sorteos() {
               alignItems: "center",
               justifyContent: "center",
               borderRadius: "50%",
-              background: "#0f0f12",
+              background: "#121216", // un pelín más claro para contraste
               border: `1px solid ${r.color}`,
               transition:
-                "all 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease",
+                "all 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease, filter 0.2s ease",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "scale(1.2)";
-              e.currentTarget.style.boxShadow = `0 0 10px ${r.color}`;
-              e.currentTarget.style.filter = "brightness(1.3)";
+              e.currentTarget.style.transform = "scale(1.18)";
+              e.currentTarget.style.boxShadow = `0 0 12px ${r.color}`;
+              e.currentTarget.style.filter = "brightness(1.15)";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = "scale(1)";
               e.currentTarget.style.boxShadow = "none";
               e.currentTarget.style.filter = "brightness(1)";
+            }}
+            onMouseDown={(e) => {
+              e.currentTarget.style.transform = "scale(0.96)";
+            }}
+            onMouseUp={(e) => {
+              e.currentTarget.style.transform = "scale(1.18)";
             }}
           >
             <img
@@ -130,6 +136,11 @@ export default function Sorteos() {
               alt={r.name}
               width="22"
               height="22"
+              style={{
+                display: "block",
+                // hace el SVG monocromo blanco para que se vea bien en oscuro
+                filter: "invert(1) brightness(1.7) contrast(1.1)",
+              }}
             />
           </a>
         ))}
@@ -137,5 +148,3 @@ export default function Sorteos() {
     </div>
   );
 }
-
-
