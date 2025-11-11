@@ -107,7 +107,7 @@ export default function Sorteos() {
             },
             {
               name: "Kick",
-              url: "https://kick.com/gridial",
+              url: "https://kick.com/gridialtv",
               color: "#52ff00",
               icon: "kick",
             },
@@ -164,3 +164,4 @@ export default function Sorteos() {
     </div>
   );
 }
+
