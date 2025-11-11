@@ -4,10 +4,10 @@ import Footer from "./components/Footer";
 
 export const metadata = {
   title: "GridialHub — Comunidad & Sorteos Gaming",
-  description: "Sorteos transparentes, artículos y comunidad gaming global.",
+  description: "Sorteos transparentes, artículos y comunidad gaming global."
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <body>
@@ -36,4 +36,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
-
