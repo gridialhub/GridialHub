@@ -538,6 +538,34 @@ a, button {
   from { opacity: 0; transform: translateY(8px); filter: saturate(0.9); }
   to   { opacity: 1; transform: none; filter: saturate(1); }
 }
+/* ===== Transiciones entre páginas ===== */
+.page-fade {
+  animation: pageFadeIn .35s ease both;
+  will-change: opacity, transform, filter;
+}
+
+.page-fade.exit {
+  animation: pageFadeOut .25s ease both;
+  pointer-events: none; /* evita clics durante salida */
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(8px); filter: saturate(0.92); }
+  to   { opacity: 1; transform: none;             filter: saturate(1); }
+}
+
+@keyframes pageFadeOut {
+  from { opacity: 1; transform: none;             filter: saturate(1); }
+  to   { opacity: 0; transform: translateY(6px);  filter: saturate(0.9); }
+}
+
+/* Respeto a accesibilidad: sin animaciones si el usuario lo pide */
+@media (prefers-reduced-motion: reduce) {
+  .page-fade, .page-fade.exit {
+    animation: none !important;
+  }
+}
+
 
 
 
