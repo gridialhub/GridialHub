@@ -8,11 +8,11 @@ const SORTEOS = [
     titulo: "Sorteo Navidad 2025",
     fecha: "15 de diciembre de 2025",
     ganadores: [
-      { nombre: "Ejemplo_1", premio: "$40 en tarjeta de regalo" },
-      { nombre: "Ejemplo_2", premio: "$40 en tarjeta de regalo" },
-      { nombre: "Ejemplo_3", premio: "$40 en tarjeta de regalo" },
-      { nombre: "Ejemplo_4", premio: "$40 en tarjeta de regalo" },
-      { nombre: "Ejemplo_5", premio: "$40 en tarjeta de regalo" },
+      { nombre: "aun sin publicar", premio: "$40 en tarjeta de regalo" },
+      { nombre: "aun sin publicar", premio: "$40 en tarjeta de regalo" },
+      { nombre: "aun sin publicar", premio: "$40 en tarjeta de regalo" },
+      { nombre: "aun sin publicar", premio: "$40 en tarjeta de regalo" },
+      { nombre: "aun sin publicar", premio: "$40 en tarjeta de regalo" },
     ],
     // opcional: mini imagen/cover (puedes cambiarla por una tuya)
     cover:
@@ -148,3 +148,4 @@ export default function Resultados() {
     </div>
   );
 }
+
