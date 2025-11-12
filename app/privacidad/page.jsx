@@ -29,13 +29,13 @@ export default function Privacidad() {
         </h1>
         <p className="meta">Última actualización: {hoy}</p>
         <p style={{ maxWidth: 900, margin: "0 auto" }}>
-          En <b>GridialHub</b> respetamos tu privacidad. Esta política explica{" "}
+          En <b>GridialHub</b> respetamos tu privacidad. Esta política explica
           qué información recopilamos, con qué finalidad la usamos, por cuánto
           tiempo la conservamos y cuáles son tus derechos.
         </p>
       </header>
 
-      {/* RESPONSABLE */}
+      {/* 1) RESPONSABLE */}
       <section className="card" style={{ padding: 22, borderRadius: 14 }}>
         <h2>1) Responsable y contacto</h2>
         <p style={{ marginBottom: 8 }}>
@@ -46,36 +46,34 @@ export default function Privacidad() {
           <a href="mailto:contact@gridialhub.com">contact@gridialhub.com</a>
         </p>
         <p className="meta">
-          Este sitio está hospedado en servicios en la nube (p. ej. Vercel) y
-          usa proveedores de DNS/CDN. Estos terceros podrían procesar datos
-          técnicos (IP, headers) para funcionamiento y seguridad.
+          Este sitio utiliza infraestructura en la nube y servicios técnicos
+          estándar de la industria para operar con seguridad y buen rendimiento.
         </p>
       </section>
 
-      {/* DATOS QUE RECOPILAMOS */}
+      {/* 2) DATOS */}
       <section className="card" style={{ padding: 22, borderRadius: 14 }}>
         <h2>2) Información que recopilamos</h2>
         <ul>
           <li>
-            <b>Datos que nos das voluntariamente</b> (p. ej. formularios de
-            contacto o registro en sorteos): nombre/alias, correo y cualquier
-            dato que escribas en el mensaje.
+            <b>Datos que nos das voluntariamente</b> (formularios de contacto o
+            registro en sorteos): nombre/alias, correo y cualquier dato que
+            incluyas en el mensaje.
           </li>
           <li>
             <b>Datos técnicos no identificables</b>: dirección IP abreviada,
             tipo de navegador, dispositivo, sistema operativo, páginas
-            visitadas, referencia y métricas anónimas para estadísticas y
-            rendimiento.
+            visitadas, referencia y métricas anónimas/aglomeradas para
+            estadísticas y rendimiento.
           </li>
           <li>
-            <b>Metadatos de participación en sorteos</b> (cuando apliquen):
-            confirmaciones de inscripción, ganadores y pruebas de entrega del
-            premio.
+            <b>Metadatos de sorteos</b> (cuando apliquen): confirmaciones de
+            inscripción, ganadores y constancias de entrega de premios.
           </li>
         </ul>
       </section>
 
-      {/* FINALIDADES / BASE LEGAL */}
+      {/* 3) FINALIDADES */}
       <section className="card" style={{ padding: 22, borderRadius: 14 }}>
         <h2>3) Para qué usamos tu información</h2>
         <ul>
@@ -93,51 +91,28 @@ export default function Privacidad() {
           </li>
         </ul>
         <p className="meta">
-          <b>Base legal:</b> tu consentimiento (por ejemplo, al enviar un
-          formulario) y el interés legítimo en operar y proteger el sitio.
+          <b>Base legal:</b> tu consentimiento (p. ej. al enviar un formulario)
+          y el interés legítimo en operar y proteger el sitio.
         </p>
       </section>
 
-      {/* COOKIES / ANALYTICS / PUBLICIDAD */}
+      {/* 4) COOKIES */}
       <section className="card" style={{ padding: 22, borderRadius: 14 }}>
         <h2>4) Cookies y tecnologías similares</h2>
         <ul>
           <li>
-            <b>Esenciales:</b> necesarias para que el sitio funcione (seguridad,
-            sesiones básicas, preferencias).
+            <b>Esenciales:</b> necesarias para seguridad, funcionamiento y
+            preferencias básicas.
           </li>
           <li>
-            <b>Métricas (Google Analytics 4):</b> usamos medición anónima/aglomerada
-            para entender visitas y mejorar el sitio. Más info de Google:{" "}
-            <a
-              href="https://policies.google.com/technologies/partner-sites?hl=es"
-              target="_blank"
-              rel="noreferrer"
-            >
-              cómo usa datos Google
-            </a>
-            .
+            <b>Métricas (Analytics):</b> medición anónima/aglomerada para
+            entender visitas y mejoras (sin identificarte personalmente).
           </li>
           <li>
-            <b>Publicidad (Google AdSense) — cuando esté activo:</b> Google
-            podría usar cookies/identificadores para mostrar anuncios. Puedes
-            gestionar tus preferencias en{" "}
-            <a
-              href="https://adssettings.google.com/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Configuración de anuncios de Google
-            </a>{" "}
-            y leer su{" "}
-            <a
-              href="https://policies.google.com/technologies/ads?hl=es"
-              target="_blank"
-              rel="noreferrer"
-            >
-              política sobre anuncios
-            </a>
-            .
+            <b>Publicidad — cuando esté activa:</b> podrían emplearse cookies o
+            identificadores para mostrar anuncios y limitar su frecuencia. Puedes
+            gestionar preferencias desde la configuración de tu navegador o la
+            plataforma publicitaria correspondiente.
           </li>
         </ul>
         <p className="meta">
@@ -146,49 +121,43 @@ export default function Privacidad() {
         </p>
       </section>
 
-      {/* TERCEROS */}
+      {/* 5) TERCEROS (VERSIÓN NEUTRA) */}
       <section className="card" style={{ padding: 22, borderRadius: 14 }}>
-        <h2>5) Proveedores y destinatarios</h2>
-        <ul>
-          <li>
-            <b>Google Analytics / Google Ads</b> (medición y, en su caso,
-            publicidad).
-          </li>
-          <li>
-            <b>Hosting/CDN</b> (p. ej. Vercel y servicios de DNS/CDN) para
-            servir el sitio con buen rendimiento y seguridad.
-          </li>
-          <li>
-            <b>Correo</b> (Zoho Mail u otro) para recibir y responder tus
-            mensajes.
-          </li>
-        </ul>
-        <p className="meta">
-          No vendemos ni alquilamos tus datos. Sólo compartimos con terceros
-          para prestar el servicio o por obligación legal.
+        <h2>5) Terceros y confidencialidad</h2>
+        <p>
+          En <b>GridialHub</b> mantenemos la confidencialidad de la información
+          que compartes voluntariamente. Los datos no se venden ni alquilan, y
+          únicamente se tratan para los fines descritos en esta política o
+          cuando exista una obligación legal.
+        </p>
+        <p>
+          Para operar el sitio podemos apoyarnos en servicios técnicos (p. ej.
+          infraestructura, análisis o envío de correos). Dichos servicios están
+          sujetos a compromisos de seguridad y privacidad acordes con los
+          estándares de la industria.
         </p>
       </section>
 
-      {/* CONSERVACIÓN */}
+      {/* 6) CONSERVACIÓN */}
       <section className="card" style={{ padding: 22, borderRadius: 14 }}>
         <h2>6) Plazos de conservación</h2>
         <ul>
           <li>
             <b>Mensajes de contacto:</b> hasta 12 meses desde la última
-            interacción, salvo que requiera más tiempo por soporte o legalidad.
+            interacción, salvo necesidad legal o de soporte.
           </li>
           <li>
-            <b>Registros de sorteos:</b> hasta 12 meses tras cerrar el sorteo
-            para auditoría y prevención de fraude.
+            <b>Registros de sorteos:</b> hasta 12 meses tras el cierre para
+            auditoría y prevención de fraude.
           </li>
           <li>
-            <b>Métricas anónimas:</b> según políticas del proveedor (p. ej.
-            Google Analytics).
+            <b>Métricas anónimas:</b> según políticas del proveedor de
+            analítica.
           </li>
         </ul>
       </section>
 
-      {/* DERECHOS */}
+      {/* 7) DERECHOS */}
       <section className="card" style={{ padding: 22, borderRadius: 14 }}>
         <h2>7) Tus derechos</h2>
         <ul>
@@ -206,7 +175,7 @@ export default function Privacidad() {
         </p>
       </section>
 
-      {/* MENORES */}
+      {/* 8) MENORES */}
       <section className="card" style={{ padding: 22, borderRadius: 14 }}>
         <h2>8) Menores de edad</h2>
         <p>
@@ -217,17 +186,18 @@ export default function Privacidad() {
         </p>
       </section>
 
-      {/* TRANSFERENCIAS */}
+      {/* 9) TRANSFERENCIAS */}
       <section className="card" style={{ padding: 22, borderRadius: 14 }}>
         <h2>9) Transferencias internacionales</h2>
         <p>
-          Algunos proveedores podrían procesar datos en otros países. En ese
-          caso, buscamos que apliquen garantías adecuadas (cláusulas estándar u
-          otros mecanismos aceptados) para proteger tu información.
+          Algunos servicios técnicos utilizados para operar el sitio pueden
+          procesar datos fuera de tu país. Procuramos que existan garantías
+          adecuadas para proteger tu información conforme a estándares
+          reconocidos.
         </p>
       </section>
 
-      {/* CAMBIOS */}
+      {/* 10) CAMBIOS */}
       <section className="card" style={{ padding: 22, borderRadius: 14 }}>
         <h2>10) Cambios a esta política</h2>
         <p>
@@ -237,7 +207,7 @@ export default function Privacidad() {
         </p>
       </section>
 
-      {/* CONTACTO */}
+      {/* 11) CONTACTO */}
       <section className="card" style={{ padding: 22, borderRadius: 14 }}>
         <h2>11) ¿Dudas o solicitudes?</h2>
         <p>
