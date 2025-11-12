@@ -1,10 +1,14 @@
 export default function robots() {
+  const baseUrl = "https://gridialhub.com";
+
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-    },
-    sitemap: "https://gridialhub.com/sitemap.xml",
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/api/", "/admin/", "/drafts/"],
+      },
+    ],
+    sitemap: `${baseUrl}/sitemap.xml`,
   };
 }
-
