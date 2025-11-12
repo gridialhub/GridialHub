@@ -1,3 +1,4 @@
+import Script from "next/script";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -59,9 +60,26 @@ export const metadata = {
     follow: true,
   },
 };
+
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
+      <head>
+        {/* Google Analytics */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-ZWQVNBZMH"
+        />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-ZWQVNBZMH');
+          `}
+        </Script>
+      </head>
+
       <body>
         <Header />
         <PageTransition>
@@ -69,7 +87,7 @@ export default function RootLayout({ children }) {
         </PageTransition>
         <Footer />
 
-        {/* Script para revelar elementos al hacer scroll */}
+        {/* Animación de aparición al hacer scroll */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -90,4 +108,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-
