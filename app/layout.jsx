@@ -34,15 +34,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <head>
-        {/* Google Analytics (ID CORRECTO con cero): G-Z0WQVNBZMH */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z0WQVNBZMH"></script>
+        {/* Google tag (gtag.js) — ID correcto: G-Z0WQVN8ZMH */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z0WQVN8ZMH"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-Z0WQVNBZMH');
+              gtag('config', 'G-Z0WQVN8ZMH');
             `,
           }}
         />
@@ -52,7 +52,7 @@ export default function RootLayout({ children }) {
         <main className="container">{children}</main>
         <Footer />
 
-        {/* Script de reveal (lo dejo como lo tenías) */}
+        {/* Reveal on scroll (como lo tenías) */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
