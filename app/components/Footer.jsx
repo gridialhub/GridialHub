@@ -16,7 +16,7 @@ export default function Footer() {
         <div style={{ display: "flex", gap: 12 }}>
           <a href="/bases">Bases</a>
           <a href="/privacidad">Política de Privacidad</a>
-          <a href="/terminos">Términos</a>
+          <a href="/terminos">Términos y Condiciones</a>
         </div>
       </div>
     </footer>
