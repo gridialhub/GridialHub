@@ -1,6 +1,5 @@
 // app/layout.jsx
 import "./globals.css";
-import Script from "next/script";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -34,24 +33,42 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <body>
-        {/* Google Analytics */}
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-ZWQVNBZMH"
+      <head>
+        {/* Google Analytics (ID CORRECTO con cero): G-Z0WQVNBZMH */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z0WQVNBZMH"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-Z0WQVNBZMH');
+            `,
+          }}
         />
-        <Script id="ga-setup" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-ZWQVNBZMH');
-          `}
-        </Script>
-
+      </head>
+      <body>
         <Header />
         <main className="container">{children}</main>
         <Footer />
+
+        {/* Script de reveal (lo dejo como lo tenías) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              const revealEls = document.querySelectorAll('.reveal');
+              const reveal = () => {
+                const vh = window.innerHeight * 0.85;
+                revealEls.forEach(el => {
+                  const rect = el.getBoundingClientRect();
+                  if (rect.top < vh) el.classList.add('visible');
+                });
+              };
+              document.addEventListener('scroll', reveal);
+              window.addEventListener('load', reveal);
+            `,
+          }}
+        />
       </body>
     </html>
   );
