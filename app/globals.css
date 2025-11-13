@@ -565,6 +565,16 @@ a, button {
     animation: none !important;
   }
 }
+/* --- Animación al pasar el mouse por la tarjeta --- */
+.post-card-link .post-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.post-card-link:hover .post-card {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
+}
+
 
 
 
