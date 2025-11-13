@@ -12,7 +12,7 @@ export const posts = [
     date: "2025-11-12",
     readingTime: "7 min",
     tags: ["IA", "rendimiento", "GPU", "NVIDIA", "AMD", "gaming", "FPS"],
-    // Este artículo no tiene imagen de portada específica
+    // Este artículo de momento no tiene imagen de portada
     cover: null,
     content: `
 <p>
@@ -123,7 +123,7 @@ Así que la próxima vez que veas tus FPS subir sin tocar un solo ajuste, recuer
     date: "2025-11-12",
     readingTime: "7 min",
     tags: ["ARK Raiders", "IA", "gaming", "cooperativo", "next-gen"],
-    // IMPORTANTE: esta ruta coincide con public/articulos/...
+    // Miniatura que se muestra en la tarjeta de Artículos
     cover: "/articulos/banner_arkraiders_1600x600.png",
     content: `
 <p>
@@ -150,10 +150,10 @@ Si el equipo se queda muy estático, el juego responde con más presión, granad
 <figure class="article-image">
   <img
     src="/articulos/arkraiders_gameplay_mid.png"
-    alt="Jugador enfrentando drones en ARK Raiders"
+    alt="Jugador enfrentando enemigos en ARK Raiders"
   />
   <figcaption>
-    Escena de combate en ARK Raiders, donde los drones y las torretas reaccionan a tu posición y cobertura.
+    Momento de combate en ARK Raiders: la IA coordina drones y robots para presionar al escuadrón desde varios ángulos.
   </figcaption>
 </figure>
 
