@@ -3,13 +3,10 @@ import Link from "next/link";
 import { posts } from "./articulos/data";
 
 export default function Home() {
-  // Tomamos los 3 artículos más recientes
+  // Tomamos los 2 artículos más recientes
   const latestPosts = [...posts]
     .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 3);
-
-  // Gradientes de fallback cuando NO hay cover
-  const thumbClasses = ["thumb-game", "thumb-pc", "thumb-raffle"];
+    .slice(0, 2);
 
   return (
     <div className="home" style={{ display: "grid", gap: 24 }}>
@@ -61,7 +58,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Últimos artículos / accesos rápidos */}
+      {/* Últimos artículos */}
       <section className="card" style={{ padding: 16 }}>
         <div
           style={{
@@ -76,9 +73,9 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="post-grid">
-          {/* 🔹 Los 3 artículos reales más recientes */}
-          {latestPosts.map((post, index) => (
+        <div className="post-grid" style={{ marginTop: 14 }}>
+          {/* 🔹 Dos últimos artículos reales (copia del código de /articulos) */}
+          {latestPosts.map((post) => (
             <Link
               key={post.slug}
               href={`/articulos/${post.slug}`}
@@ -86,9 +83,7 @@ export default function Home() {
             >
               <article className="post-card">
                 <div
-                  className={`post-thumb ${
-                    post.cover ? "" : thumbClasses[index] || "thumb-game"
-                  }`}
+                  className={`post-thumb ${post.cover ? "" : "thumb-game"}`}
                   style={
                     post.cover
                       ? {
@@ -106,6 +101,15 @@ export default function Home() {
                     {post.readingTime}
                   </p>
                   <p className="meta">{post.excerpt}</p>
+                  <div
+                    style={{ display: "flex", gap: 8, flexWrap: "wrap" }}
+                  >
+                    {post.tags?.map((t) => (
+                      <span key={t} className="badge">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </article>
             </Link>
@@ -117,7 +121,6 @@ export default function Home() {
             <div className="post-body">
               <h4>Redes y canales</h4>
               <p className="meta">Sígueme para sumar oportunidades</p>
-
               <div
                 style={{
                   display: "flex",
