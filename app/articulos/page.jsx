@@ -1,3 +1,4 @@
+// app/articulos/page.jsx
 import Link from "next/link";
 import { posts } from "./data";
 
@@ -9,7 +10,6 @@ export const metadata = {
 export default function ArticulosPage() {
   return (
     <div className="card" style={{ padding: 16 }}>
-      {/* ENCABEZADO */}
       <header
         style={{
           display: "flex",
@@ -21,59 +21,42 @@ export default function ArticulosPage() {
         <span className="badge">Total: {posts.length}</span>
       </header>
 
-      {/* GRID DE ARTÍCULOS */}
       <div className="post-grid" style={{ marginTop: 14 }}>
         {posts.map((post) => (
           <Link
             key={post.slug}
             href={`/articulos/${post.slug}`}
             className="post-card-link"
-            style={{
-              textDecoration: "none",
-              color: "inherit",
-            }}
           >
             <article className="post-card">
-              {/* MINIATURA */}
-              {post.thumbnail ? (
-                <div
-                  style={{
-                    width: "100%",
-                    height: 160,
-                    overflow: "hidden",
-                    borderRadius: "14px 14px 0 0",
-                  }}
-                >
-                  <img
-                    src={post.thumbnail}
-                    alt={post.title}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      display: "block",
-                    }}
-                  />
+              {/* MINIATURA / PORTADA */}
+              {post.cover ? (
+                <div className="post-thumb with-img">
+                  <img src={post.cover} alt={post.title} />
                 </div>
               ) : (
-                <div
-                  className="post-thumb thumb-game"
-                  style={{ borderRadius: "14px 14px 0 0" }}
-                />
+                <div className="post-thumb thumb-game" />
               )}
 
-              {/* CUERPO DEL ARTÍCULO */}
+              {/* CUERPO DE LA TARJETA */}
               <div className="post-body">
                 <h4>{post.title}</h4>
 
                 <p className="meta">
                   {new Date(post.date).toLocaleDateString("es-VE")} •{" "}
-                  {post.readingTime ?? ""}
+                  {post.readingTime}
                 </p>
 
                 <p className="meta">{post.excerpt}</p>
 
-                <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    gap: 8,
+                    flexWrap: "wrap",
+                    marginTop: 8,
+                  }}
+                >
                   {post.tags?.map((t) => (
                     <span key={t} className="badge">
                       {t}
