@@ -1,80 +1,102 @@
-import { notFound } from "next/navigation";
+// app/articulos/[slug]/page.jsx
 import Link from "next/link";
-import { posts, getPost } from "../data";
+import { getPost } from "../data";
 
-// Pre-render de rutas estáticas
-export function generateStaticParams() {
-  return posts.map((p) => ({ slug: p.slug }));
-}
-
-// SEO por artículo
-export function generateMetadata({ params }) {
+export async function generateMetadata({ params }) {
   const post = getPost(params.slug);
-  if (!post) return { title: "Artículo no encontrado | GridialHub" };
 
-  const url = `https://gridialhub.com/articulos/${post.slug}`;
-  const image = post.ogImage || post.cover || "https://gridialhub.com/og-image.jpg";
+  if (!post) {
+    return {
+      title: "Artículo no encontrado | GridialHub",
+      description: "El artículo que buscas no existe o fue movido.",
+    };
+  }
 
   return {
     title: `${post.title} | GridialHub`,
     description: post.excerpt,
-    openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      url,
-      siteName: "GridialHub",
-      images: [{ url: image, width: 1200, height: 630, alt: post.title }],
-      type: "article",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: post.title,
-      description: post.excerpt,
-      images: [image],
-    },
   };
 }
 
-export default function ArticuloDetalle({ params }) {
+export default function ArticlePage({ params }) {
   const post = getPost(params.slug);
-  if (!post) return notFound();
+
+  if (!post) {
+    return (
+      <div className="card" style={{ padding: 24 }}>
+        <h1>Artículo no encontrado</h1>
+        <p className="meta">
+          El artículo que intentas ver no existe.{" "}
+          <Link href="/articulos">Volver a artículos</Link>
+        </p>
+      </div>
+    );
+  }
 
   return (
-    <article className="card" style={{ padding: 20 }}>
-      <header style={{ display: "grid", gap: 6 }}>
-        <Link href="/articulos" className="badge">← Volver a artículos</Link>
-        <h1 style={{ margin: 0 }}>{post.title}</h1>
-        <p className="meta">
-          {new Date(post.date).toLocaleDateString("es-VE")} • {post.readingTime}
-        </p>
-        {post.tags?.length ? (
-          <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-            {post.tags.map((t) => (
-              <span key={t} className="badge">{t}</span>
-            ))}
-          </div>
-        ) : null}
-      </header>
+    <div className="card" style={{ padding: 20, borderRadius: 18 }}>
+      {/* Volver atrás */}
+      <div style={{ marginBottom: 12 }}>
+        <Link href="/articulos" className="meta">
+          ← Volver a artículos
+        </Link>
+      </div>
 
-      {/* Portada opcional */}
-      {post.cover ? (
+      {/* Título */}
+      <h1
+        style={{
+          fontSize: "clamp(26px, 3.2vw, 34px)",
+          fontWeight: 900,
+          marginBottom: 4,
+        }}
+      >
+        {post.title}
+      </h1>
+
+      {/* Fecha + lectura */}
+      <p className="meta" style={{ marginBottom: 8 }}>
+        {new Date(post.date).toLocaleDateString("es-VE")} • {post.readingTime}
+      </p>
+
+      {/* Tags */}
+      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
+        {post.tags?.map((tag) => (
+          <span key={tag} className="badge">
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      {/* HERO CON IMAGEN DE PORTADA */}
+      {post.cover && (
         <div
+          className="article-hero"
           style={{
-            width: "100%",
-            height: 240,
-            borderRadius: 14,
-            marginTop: 12,
-            background: `url(${post.cover}) center/cover no-repeat`,
-            border: "1px solid var(--border)",
+            marginBottom: 24,
+            borderRadius: 16,
+            overflow: "hidden",
+            background: "#050509",
           }}
-        />
-      ) : null}
+        >
+          <img
+            src={post.cover}
+            alt={post.title}
+            style={{
+              display: "block",
+              width: "100%",
+              height: "auto",
+              objectFit: "cover",
+            }}
+          />
+        </div>
+      )}
 
-      {/* Contenido HTML controlado desde data.js */}
+      {/* CONTENIDO DEL ARTÍCULO */}
       <div
-        style={{ marginTop: 16, lineHeight: 1.7 }}
+        className="article-content"
+        style={{ lineHeight: 1.7 }}
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
-    </article>
+    </div>
   );
 }
