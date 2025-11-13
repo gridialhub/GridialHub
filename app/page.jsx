@@ -1,18 +1,15 @@
-"use client";
-import { useEffect } from "react";
+// app/page.jsx
 import Link from "next/link";
+import { posts } from "./articulos/data";
 
 export default function Home() {
-  // Reaplica las animaciones reveal cada vez que se monta la página de inicio
-  useEffect(() => {
-    const els = document.querySelectorAll(".reveal");
-    els.forEach((el, i) => {
-      // Limpia estado previo por si quedó visible
-      el.classList.remove("visible");
-      // Pequeño delay escalonado para la entrada suave
-      setTimeout(() => el.classList.add("visible"), 120 * i);
-    });
-  }, []);
+  // Tomamos los 3 artículos más recientes
+  const latestPosts = [...posts]
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 3);
+
+  // Gradientes para las tarjetas del home
+  const thumbClasses = ["thumb-game", "thumb-pc", "thumb-raffle"];
 
   return (
     <div className="home" style={{ display: "grid", gap: 24 }}>
@@ -35,7 +32,6 @@ export default function Home() {
             margin: "0 auto",
           }}
         >
-          {/* HERO con animación cinemática */}
           <div className="intro-box hero-cinematic">
             <p
               className="intro-text"
@@ -46,21 +42,18 @@ export default function Home() {
                 marginBottom: 28,
               }}
             >
-              Bienvenido a <b>GridialHub</b>, el punto de encuentro para mi comunidad.
-              Aquí te mantienes al día con <b>avances en videojuegos</b>, tendencias de{" "}
-              <b>tecnología</b>, además de <b>eventos</b> y <b>sorteos</b> pensados para
-              quienes apoyan el proyecto. Mi objetivo es que tengas información útil,
+              Bienvenido a <b>GridialHub</b>, el punto de encuentro para mi
+              comunidad. Aquí te mantienes al día con{" "}
+              <b>avances en videojuegos</b>, tendencias de <b>tecnología</b>,
+              además de <b>eventos</b> y <b>sorteos</b> pensados para quienes
+              apoyan el proyecto. Mi objetivo es que tengas información útil,
               honesta y en un solo lugar, mientras crecemos como comunidad.
             </p>
 
             <Link
               href="/sorteos"
               className="btn"
-              style={{
-                fontSize: 18,
-                padding: "12px 28px",
-                borderRadius: 12,
-              }}
+              style={{ fontSize: 18, padding: "12px 28px", borderRadius: 12 }}
             >
               Participar en sorteos
             </Link>
@@ -69,7 +62,7 @@ export default function Home() {
       </section>
 
       {/* Últimos artículos / accesos rápidos */}
-      <section className="card reveal" style={{ padding: 16 }}>
+      <section className="card" style={{ padding: 16 }}>
         <div
           style={{
             display: "flex",
@@ -84,49 +77,33 @@ export default function Home() {
         </div>
 
         <div className="post-grid">
-          {/* Artículo 1: Juego */}
-          <article className="post-card reveal">
-            <div className="post-thumb thumb-game" />
-            <div className="post-body">
-              <h4>
-                <Link href="/articulos">
-                  Primeras impresiones de un juego nuevo
-                </Link>
-              </h4>
-              <p className="meta">Opinión, rendimiento y modos de juego</p>
-            </div>
-          </article>
+          {/* 🔹 Los 3 artículos reales más recientes */}
+          {latestPosts.map((post, index) => (
+            <Link
+              key={post.slug}
+              href={`/articulos/${post.slug}`}
+              className="post-card-link"
+            >
+              <article className="post-card">
+                <div
+                  className={`post-thumb ${
+                    thumbClasses[index] || "thumb-game"
+                  }`}
+                />
+                <div className="post-body">
+                  <h4>{post.title}</h4>
+                  <p className="meta">
+                    {new Date(post.date).toLocaleDateString("es-VE")} •{" "}
+                    {post.readingTime}
+                  </p>
+                  <p className="meta">{post.excerpt}</p>
+                </div>
+              </article>
+            </Link>
+          ))}
 
-          {/* Artículo 2: Componentes PC */}
-          <article className="post-card reveal">
-            <div className="post-thumb thumb-pc" />
-            <div className="post-body">
-              <h4>
-                <Link href="/articulos">Componentes de PC: guía rápida</Link>
-              </h4>
-              <p className="meta">
-                GPU, CPU, RAM: qué mirar antes de comprar
-              </p>
-            </div>
-          </article>
-
-          {/* Artículo 3: Sorteo */}
-          <article className="post-card reveal">
-            <div className="post-thumb thumb-raffle" />
-            <div className="post-body">
-              <h4>
-                <Link href="/sorteos">
-                  Sorteo activo: $200 para 5 ganadores
-                </Link>
-              </h4>
-              <p className="meta">
-                Cómo participar y cuándo será el en vivo
-              </p>
-            </div>
-          </article>
-
-          {/* Artículo 4: Redes y canales */}
-          <article className="post-card reveal">
+          {/* 🔹 Tarjeta fija de redes y canales */}
+          <article className="post-card">
             <div className="post-thumb thumb-social" />
             <div className="post-body">
               <h4>Redes y canales</h4>
@@ -140,73 +117,44 @@ export default function Home() {
                   alignItems: "center",
                 }}
               >
-                {/* TikTok */}
                 <a
                   className="badge badge-tiktok"
                   href="https://www.tiktok.com/@gridial"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <circle cx="9" cy="17" r="3"></circle>
-                    <rect x="11" y="3" width="2.2" height="10" rx="1.1"></rect>
-                    <path d="M13.2 6c1.2 1.4 2.8 2.3 4.8 2.4v2.2c-2.1-.1-3.8-.8-5-1.9V6z"></path>
-                  </svg>
                   TikTok
                 </a>
-
-                {/* Twitch */}
                 <a
                   className="badge badge-twitch"
                   href="https://www.twitch.tv/gridialtv"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M5 3h14v9.5l-3.5 3.5H12l-2 2H8v-2H5V3z"></path>
-                    <rect x="9" y="7" width="2.5" height="3.2" rx="0.4"></rect>
-                    <rect x="13.5" y="7" width="2.5" height="3.2" rx="0.4"></rect>
-                  </svg>
                   Twitch
                 </a>
-
-                {/* YouTube */}
                 <a
                   className="badge badge-youtube"
                   href="https://www.youtube.com/@Gridial"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <rect x="3" y="6.5" width="18" height="11" rx="3"></rect>
-                    <path d="M10 9l6 3-6 3V9z"></path>
-                  </svg>
                   YouTube
                 </a>
-
-                {/* Facebook */}
                 <a
                   className="badge badge-facebook"
                   href="https://www.facebook.com/GridialOfficial"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M13 10h3V7h-3c-2 0-3.5 1.5-3.5 3.5V13H7v3h2.5v4h3v-4H16v-3h-3v-1.5c0-.6.4-1 1-1z"></path>
-                  </svg>
                   Facebook
                 </a>
-
-                {/* Kick */}
                 <a
                   className="badge badge-kick"
                   href="https://kick.com/gridialtv"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M6 4h3v7l4-4h3l-4.5 4.5L16 20h-3l-4-5v5H6V4z"></path>
-                  </svg>
                   Kick
                 </a>
               </div>
