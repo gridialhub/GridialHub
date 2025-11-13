@@ -10,7 +10,8 @@ export default function Home() {
 
   return (
     <div className="home" style={{ display: "grid", gap: 24 }}>
-      {/* HERO: introducción + botón */}
+
+      {/* HERO CENTRADO */}
       <section
         className="card"
         style={{ position: "relative", overflow: "hidden", padding: 0 }}
@@ -22,8 +23,8 @@ export default function Home() {
           style={{
             display: "flex",
             flexDirection: "column",
-            alignItems: "flex-start",
-            textAlign: "left",
+            alignItems: "center",     // centrado horizontal
+            textAlign: "center",      // centrado del texto
             gap: 24,
             padding: 60,
             maxWidth: 900,
@@ -34,7 +35,6 @@ export default function Home() {
             Bienvenido a GridialHub
           </h1>
 
-          {/* INTRO NUEVA */}
           <p
             className="intro-text"
             style={{ fontSize: 18, lineHeight: 1.6, maxWidth: 720 }}
@@ -42,8 +42,8 @@ export default function Home() {
             GridialHub es un espacio creado para gamers, creadores de contenido
             y amantes de la tecnología. Aquí encontrarás artículos, guías,
             novedades, noticias, análisis y sorteos pensados para ayudarte a
-            mejorar tu experiencia de juego y mantenerte al día con lo último en
-            el mundo gaming.  
+            mejorar tu experiencia de juego y mantenerte al día con lo último
+            en el mundo gaming.
             <br /><br />
             Nuestro objetivo es construir una comunidad donde cada visita aporte
             valor: información clara, contenido útil y un ambiente donde todos
@@ -60,7 +60,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ÚLTIMOS ARTÍCULOS (dinámicos con miniatura) */}
+      {/* ÚLTIMOS ARTÍCULOS */}
       <section className="card" style={{ padding: 16 }}>
         <div
           style={{
@@ -70,15 +70,18 @@ export default function Home() {
           }}
         >
           <h3 style={{ margin: 0 }}>Últimos artículos</h3>
+
           <Link href="/articulos" className="btn btn-secondary">
             Ver todos
           </Link>
         </div>
 
+        {/* GRID DE ARTÍCULOS */}
         <div className="post-grid" style={{ marginTop: 14 }}>
           {latestPosts.map((post) => (
             <article key={post.slug} className="post-card clickable-card">
-              {/* Miniatura */}
+
+              {/* MINIATURA DEL ARTÍCULO */}
               <div
                 className={`post-thumb ${post.cover ? "" : "thumb-game"}`}
                 style={
@@ -92,6 +95,7 @@ export default function Home() {
                 }
               />
 
+              {/* CONTENIDO */}
               <div className="post-body">
                 <h4>
                   <Link href={`/articulos/${post.slug}`}>{post.title}</Link>
