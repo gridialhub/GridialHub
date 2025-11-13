@@ -1,71 +1,117 @@
+// app/page.jsx
+"use client";
+
 import Link from "next/link";
 import { posts } from "./articulos/data";
 
-export default function HomePage() {
-  const latestPosts = posts.slice(0, 2); // Mostrar los 2 más recientes
+export default function Home() {
+  // Tomamos los 2 artículos más recientes
+  const latestPosts = posts.slice(0, 2);
 
   return (
-    <div className="container" style={{ paddingBottom: 80 }}>
-      
-      {/* TÍTULO PRINCIPAL */}
-      <h1 style={{ fontSize: "clamp(26px, 4vw, 42px)", marginBottom: 10 }}>
-        Bienvenido a GridialHub
-      </h1>
-
-      {/* INTRO */}
-      <p style={{ maxWidth: 700, opacity: 0.85, marginBottom: 40 }}>
-        Bienvenido a <b>GridialHub</b>, tu espacio digital donde lo gaming, la tecnología y la creatividad se juntan.
-        Aquí encontrarás artículos, análisis, guías, novedades y contenido pensado para la comunidad.
-        Si juegas, creas contenido o simplemente te encanta la tecnología, estás en casa.
-      </p>
-
-      {/* ÚLTIMOS ARTÍCULOS */}
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <h2 style={{ margin: 0 }}>Últimos artículos</h2>
-        <Link href="/articulos" className="button">
-          Ver todos
-        </Link>
-      </div>
-
-      <div className="post-grid" style={{ marginTop: 16 }}>
-        {latestPosts.map((post) => (
-          <Link
-            key={post.id}
-            href={`/articulos/${post.slug}`}
-            className="post-card"
-            style={{ textDecoration: "none" }}
+    <div className="home" style={{ display: "grid", gap: 24 }}>
+      {/* HERO: introducción + botón */}
+      <section
+        className="card"
+        style={{ position: "relative", overflow: "hidden", padding: 0 }}
+      >
+        <div className="hero__bg" aria-hidden="true" />
+        <div
+          className="container"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            textAlign: "left",
+            gap: 24,
+            padding: 60,
+            maxWidth: 900,
+            margin: "0 auto",
+          }}
+        >
+          <h1 style={{ fontSize: "clamp(28px, 4vw, 40px)", margin: 0 }}>
+            Bienvenido a GridialHub
+          </h1>
+          <p
+            className="intro-text"
+            style={{ fontSize: 18, lineHeight: 1.6, maxWidth: 720 }}
           >
-            <article>
-              {/* MINIATURA */}
+            Comunidad gaming, artículos, sorteos y mucho más.
+          </p>
+
+          <Link
+            href="/sorteos"
+            className="btn"
+            style={{ fontSize: 18, padding: "12px 28px", borderRadius: 12 }}
+          >
+            Participar en sorteos
+          </Link>
+        </div>
+      </section>
+
+      {/* ÚLTIMOS ARTÍCULOS (dinámicos con miniatura) */}
+      <section className="card" style={{ padding: 16 }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <h3 style={{ margin: 0 }}>Últimos artículos</h3>
+          <Link href="/articulos" className="btn btn-secondary">
+            Ver todos
+          </Link>
+        </div>
+
+        <div className="post-grid" style={{ marginTop: 14 }}>
+          {latestPosts.map((post) => (
+            <article key={post.slug} className="post-card clickable-card">
+              {/* Miniatura: usamos el mismo patrón que en /articulos */}
               <div
-                className="post-thumb"
-                style={{
-                  background:
-                    post.cover
-                      ? `url(${post.cover}) center/cover no-repeat`
-                      : "var(--gradient-card)"
-                }}
+                className={`post-thumb ${post.cover ? "" : "thumb-game"}`}
+                style={
+                  post.cover
+                    ? {
+                        backgroundImage: `url(${post.cover})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }
+                    : {}
+                }
               />
 
-              {/* CUERPO */}
               <div className="post-body">
-                <h4>{post.title}</h4>
+                <h4>
+                  <Link href={`/articulos/${post.slug}`}>{post.title}</Link>
+                </h4>
+
                 <p className="meta">
-                  {new Date(post.date).toLocaleDateString("es-VE")} • {post.readingTime}
+                  {new Date(post.date).toLocaleDateString("es-VE")} •{" "}
+                  {post.readingTime}
                 </p>
+
                 <p className="meta">{post.excerpt}</p>
 
-                {/* TAGS */}
-                <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                  {post.tags.map((t) => (
-                    <span key={t} className="badge">{t}</span>
+                <div
+                  style={{
+                    display: "flex",
+                    gap: 8,
+                    flexWrap: "wrap",
+                    marginTop: 8,
+                  }}
+                >
+                  {post.tags?.map((t) => (
+                    <span key={t} className="badge">
+                      {t}
+                    </span>
                   ))}
                 </div>
               </div>
             </article>
-          </Link>
-        ))}
-      </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
