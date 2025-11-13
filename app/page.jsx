@@ -16,6 +16,7 @@ export default function Home() {
         style={{ position: "relative", overflow: "hidden", padding: 0 }}
       >
         <div className="hero__bg" aria-hidden="true" />
+
         <div
           className="container"
           style={{
@@ -32,11 +33,21 @@ export default function Home() {
           <h1 style={{ fontSize: "clamp(28px, 4vw, 40px)", margin: 0 }}>
             Bienvenido a GridialHub
           </h1>
+
+          {/* INTRO NUEVA */}
           <p
             className="intro-text"
             style={{ fontSize: 18, lineHeight: 1.6, maxWidth: 720 }}
           >
-            Comunidad gaming, artículos, sorteos y mucho más.
+            GridialHub es un espacio creado para gamers, creadores de contenido
+            y amantes de la tecnología. Aquí encontrarás artículos, guías,
+            novedades, noticias, análisis y sorteos pensados para ayudarte a
+            mejorar tu experiencia de juego y mantenerte al día con lo último en
+            el mundo gaming.  
+            <br /><br />
+            Nuestro objetivo es construir una comunidad donde cada visita aporte
+            valor: información clara, contenido útil y un ambiente donde todos
+            puedan participar, aprender y crecer.
           </p>
 
           <Link
@@ -67,7 +78,7 @@ export default function Home() {
         <div className="post-grid" style={{ marginTop: 14 }}>
           {latestPosts.map((post) => (
             <article key={post.slug} className="post-card clickable-card">
-              {/* Miniatura: usamos el mismo patrón que en /articulos */}
+              {/* Miniatura */}
               <div
                 className={`post-thumb ${post.cover ? "" : "thumb-game"}`}
                 style={
