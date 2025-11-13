@@ -8,7 +8,7 @@ export default function Home() {
     .sort((a, b) => new Date(b.date) - new Date(a.date))
     .slice(0, 3);
 
-  // Gradientes para las tarjetas del home
+  // Gradientes de fallback cuando NO hay cover
   const thumbClasses = ["thumb-game", "thumb-pc", "thumb-raffle"];
 
   return (
@@ -87,8 +87,17 @@ export default function Home() {
               <article className="post-card">
                 <div
                   className={`post-thumb ${
-                    thumbClasses[index] || "thumb-game"
+                    post.cover ? "" : thumbClasses[index] || "thumb-game"
                   }`}
+                  style={
+                    post.cover
+                      ? {
+                          backgroundImage: `url(${post.cover})`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }
+                      : {}
+                  }
                 />
                 <div className="post-body">
                   <h4>{post.title}</h4>
