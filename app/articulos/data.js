@@ -10,7 +10,7 @@ export const posts = [
       "La inteligencia artificial ya no es solo cosa de desarrolladores; está integrada en tu GPU, tu placa madre y tu software de juego para darte más frames, mejor calidad visual y menos lag. Te mostramos cómo funciona y cómo aprovecharla.",
     date: "2025-11-12",
     tags: ["IA", "rendimiento", "GPU", "NVIDIA", "AMD", "gaming", "FPS"],
-    cover: "/banner_arkraiders_1600x600.png",
+    // sin cover: en el grid usa el fondo degradado
     readingTime: "6 min",
     content: `
 <p>
@@ -45,19 +45,6 @@ Por ejemplo, si estás jugando un shooter competitivo, la IA reduce la latencia,
 Si cambias a un juego más cinemático, redistribuye energía hacia la GPU y libera procesos innecesarios del sistema.  
 Es optimización en tiempo real.
 </p>
-
-<!-- ⭐⭐⭐ IMAGEN NUEVA (la que pediste) ⭐⭐⭐ -->
-<img
-  src="/arkraiders_gameplay_mid.png"
-  alt="Gameplay ARK Raiders IA optimizada"
-  style="
-    width: 100%;
-    border-radius: 14px;
-    margin: 28px 0;
-    object-fit: cover;
-  "
-/>
-<!-- ⭐⭐⭐ FIN IMAGEN NUEVA ⭐⭐⭐ -->
 
 <h3>Ventajas que ya puedes notar</h3>
 <ul>
@@ -118,6 +105,78 @@ Y eso es apenas el comienzo: en pocos años, veremos GPUs que optimizan su rendi
 <p>
 Para los creadores de contenido, streamers y jugadores competitivos, esto no es solo una mejora técnica — es una nueva forma de entender el rendimiento.  
 Así que la próxima vez que veas tus FPS subir sin tocar un solo ajuste, recuerda: tu PC ya está pensando por ti.
+</p>
+    `,
+  },
+
+  {
+    id: 2,
+    slug: "ark-raiders-ia-gameplay",
+    title: "ARK Raiders: cómo la IA está llevando el gameplay a otro nivel",
+    excerpt:
+      "ARK Raiders combina acción cooperativa con sistemas de inteligencia artificial que hacen que cada partida se sienta más viva, impredecible y desafiante. Te cuento cómo funciona y por qué es importante para el futuro de los shooters.",
+    date: "2025-11-12",
+    tags: ["ARK Raiders", "IA", "gaming", "cooperativo", "next-gen"],
+    cover: "/banner_arkraiders_1600x600.png",
+    readingTime: "7 min",
+    content: `
+<p>
+<b>ARK Raiders</b> no es solo otro shooter cooperativo con robots gigantes. Detrás de sus escenas de acción y combates espectaculares hay un sistema de <b>inteligencia artificial</b> que trabaja todo el tiempo para que cada partida se sienta diferente.  
+Desde la forma en que se mueven los enemigos hasta la manera en que reaccionan a tu equipo, casi todo está influenciado por decisiones que toma la IA en segundo plano.
+</p>
+
+<h3>Un mundo dinámico que reacciona a tu escuadrón</h3>
+<p>
+A diferencia de otros juegos donde los enemigos aparecen siempre en los mismos lugares, en ARK Raiders la IA analiza la situación: qué ruta tomas, cuánto ruido hace tu equipo, qué tanta presión puede aguantar el grupo, etc.  
+Con esa información decide <b>dónde generar amenazas</b>, cuándo mandar refuerzos y cuándo dejarte respirar.
+</p>
+
+<p>
+Eso hace que una misión que ayer fue relativamente tranquila, hoy pueda convertirse en una emboscada brutal llena de drones y máquinas pesadas.  
+El objetivo es que el jugador nunca sienta que está repitiendo exactamente la misma partida.
+</p>
+
+<!-- IMAGEN CENTRAL: TU CAPTURA NUEVA -->
+<img
+  src="/arkraiders_gameplay_mid.png"
+  alt="Gameplay de ARK Raiders con acción cooperativa"
+  style="
+    width: 100%;
+    border-radius: 14px;
+    margin: 28px 0;
+    object-fit: cover;
+  "
+/>
+
+<h3>Enemigos que parecen “pensar”</h3>
+<p>
+Los robots no solo corren hacia ti hasta morir. Algunos rodean posiciones, otros priorizan flanquear al jugador que más daño hace, y ciertos tipos de enemigos se enfocan en romper tu cobertura o obligarte a moverte.  
+Todo esto lo decide un sistema de <b>IA táctica</b> que valora distancias, líneas de visión, ruido y objetivos prioritarios.
+</p>
+
+<p>
+Si tu equipo se queda demasiado tiempo en un mismo punto, la IA puede mandar presión constante desde varios ángulos para obligarte a cambiar de zona.  
+En cambio, si avanzan rápido y coordinados, el juego puede guardar los momentos más tensos para zonas clave del mapa.
+</p>
+
+<h3>Ventajas para la rejugabilidad</h3>
+<ul>
+  <li><b>Partidas menos predecibles:</b> los encuentros cambian de lugar y de intensidad.</li>
+  <li><b>Más valor al trabajo en equipo:</b> la IA castiga a los jugadores que van solos o descoordinados.</li>
+  <li><b>Sensación de mundo vivo:</b> no parece que el juego simplemente “suelte oleadas”; parece que el enemigo responde a lo que haces.</li>
+</ul>
+
+<h3>¿Qué significa esto para el futuro de los shooters?</h3>
+<p>
+Lo interesante de ARK Raiders no es solo su estilo visual, sino la idea que plantea: usar la IA no solo para gráficos o rendimiento, sino para <b>diseñar encuentros dinámicos</b>.  
+Si esta filosofía se vuelve estándar, podríamos ver shooters donde cada campaña o cada misión sea prácticamente única para cada jugador.
+</p>
+
+<h3>Conclusión: IA al servicio del jugador</h3>
+<p>
+ARK Raiders demuestra que la IA puede ser mucho más que un nombre bonito en el marketing.  
+Cuando se aplica bien, logra que el juego se sienta <b>más vivo, desafiante y memorable</b>, sin depender únicamente de más enemigos o más daño.  
+Si te gustan los shooters cooperativos donde el reto sube a medida que tú mejoras, este tipo de diseño con IA es algo a lo que deberías prestarle atención.
 </p>
     `,
   },
