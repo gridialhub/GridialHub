@@ -10,7 +10,6 @@ export default function Home() {
 
   return (
     <div className="home" style={{ display: "grid", gap: 24 }}>
-
       {/* HERO CENTRADO */}
       <section
         className="card"
@@ -23,8 +22,8 @@ export default function Home() {
           style={{
             display: "flex",
             flexDirection: "column",
-            alignItems: "center",     // centrado horizontal
-            textAlign: "center",      // centrado del texto
+            alignItems: "center", // centrado horizontal
+            textAlign: "center", // centrado del texto
             gap: 24,
             padding: 60,
             maxWidth: 900,
@@ -44,7 +43,8 @@ export default function Home() {
             novedades, noticias, análisis y sorteos pensados para ayudarte a
             mejorar tu experiencia de juego y mantenerte al día con lo último
             en el mundo gaming.
-            <br /><br />
+            <br />
+            <br />
             Nuestro objetivo es construir una comunidad donde cada visita aporte
             valor: información clara, contenido útil y un ambiente donde todos
             puedan participar, aprender y crecer.
@@ -79,8 +79,12 @@ export default function Home() {
         {/* GRID DE ARTÍCULOS */}
         <div className="post-grid" style={{ marginTop: 14 }}>
           {latestPosts.map((post) => (
-            <article key={post.slug} className="post-card clickable-card">
-
+            <Link
+              key={post.slug}
+              href={`/articulos/${post.slug}`}
+              className="post-card clickable-card"
+              style={{ textDecoration: "none" }}
+            >
               {/* MINIATURA DEL ARTÍCULO */}
               <div
                 className={`post-thumb ${post.cover ? "" : "thumb-game"}`}
@@ -97,9 +101,7 @@ export default function Home() {
 
               {/* CONTENIDO */}
               <div className="post-body">
-                <h4>
-                  <Link href={`/articulos/${post.slug}`}>{post.title}</Link>
-                </h4>
+                <h4>{post.title}</h4>
 
                 <p className="meta">
                   {new Date(post.date).toLocaleDateString("es-VE")} •{" "}
@@ -123,7 +125,7 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </section>
