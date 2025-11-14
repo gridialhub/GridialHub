@@ -2,7 +2,7 @@
 "use client";
 
 import Link from "next/link";
-import { posts } from "./articulos/data";
+import { posts } from "./articulos/posts";
 
 export default function Home() {
   // Tomamos los 2 artículos más recientes
@@ -67,6 +67,7 @@ export default function Home() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
+            gap: 12,
           }}
         >
           <h3 style={{ margin: 0 }}>Últimos artículos</h3>
@@ -82,49 +83,53 @@ export default function Home() {
             <Link
               key={post.slug}
               href={`/articulos/${post.slug}`}
-              className="post-card clickable-card"
-              style={{ textDecoration: "none" }}
+              className="clickable-card-link"
+              style={{ textDecoration: "none", color: "inherit" }}
             >
-              {/* MINIATURA DEL ARTÍCULO */}
-              <div
-                className={`post-thumb ${post.cover ? "" : "thumb-game"}`}
-                style={
-                  post.cover
-                    ? {
-                        backgroundImage: `url(${post.cover})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                      }
-                    : {}
-                }
-              />
-
-              {/* CONTENIDO */}
-              <div className="post-body">
-                <h4>{post.title}</h4>
-
-                <p className="meta">
-                  {new Date(post.date).toLocaleDateString("es-VE")} •{" "}
-                  {post.readingTime}
-                </p>
-
-                <p className="meta">{post.excerpt}</p>
-
+              <article className="post-card clickable-card">
+                {/* MINIATURA DEL ARTÍCULO */}
                 <div
-                  style={{
-                    display: "flex",
-                    gap: 8,
-                    flexWrap: "wrap",
-                    marginTop: 8,
-                  }}
-                >
-                  {post.tags?.map((t) => (
-                    <span key={t} className="badge">
-                      {t}
-                    </span>
-                  ))}
+                  className={`post-thumb ${post.cover ? "" : "thumb-game"}`}
+                  style={
+                    post.cover
+                      ? {
+                          backgroundImage: `url(${post.cover})`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }
+                      : {}
+                  }
+                />
+
+                {/* CONTENIDO */}
+                <div className="post-body">
+                  <h4 style={{ marginBottom: 4 }}>{post.title}</h4>
+
+                  <p className="meta">
+                    {new Date(post.date).toLocaleDateString("es-VE")} •{" "}
+                    {post.readingTime}
+                  </p>
+
+                  <p className="meta" style={{ marginTop: 4 }}>
+                    {post.excerpt}
+                  </p>
+
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: 8,
+                      flexWrap: "wrap",
+                      marginTop: 8,
+                    }}
+                  >
+                    {post.tags?.map((t) => (
+                      <span key={t} className="badge">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </article>
             </Link>
           ))}
         </div>
