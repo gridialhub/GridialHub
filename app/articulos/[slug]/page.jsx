@@ -1,7 +1,7 @@
 // app/articulos/[slug]/page.jsx
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { posts } from '../posts/posts';
+import { posts } from '../data';
 
 export default function ArticuloPage({ params }) {
   const { slug } = params;
