@@ -8,7 +8,6 @@ export const posts = [
       'Guía para mejorar el rendimiento de tus juegos usando herramientas de IA sin perder calidad.',
     date: '14 de noviembre de 2025',
     readTime: '5 min',
-    image: '/articulos/ia-fps-banner.jpg', // luego cambias esto al nombre real
   },
   {
     slug: 'ark-raiders',
@@ -17,6 +16,5 @@ export const posts = [
       'Probamos Ark Raiders y te contamos qué tal se siente en 2025.',
     date: '14 de noviembre de 2025',
     readTime: '6 min',
-    image: '/articulos/ark-raiders-banner.jpg', // y este también
   },
 ];
