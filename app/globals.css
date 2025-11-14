@@ -620,6 +620,16 @@ a, button {
   object-fit: cover;
   display: block;
 }
+.clickable-card {
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.clickable-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.08);
+}
+
 
 
 
