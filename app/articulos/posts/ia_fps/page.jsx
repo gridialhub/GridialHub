@@ -1,229 +1,233 @@
 // app/articulos/ia-fps/page.jsx
 
 export const metadata = {
-  title: "Cómo la IA está optimizando tus FPS en tiempo real | GridialHub",
+  title:
+    "Cómo la IA está optimizando tus FPS en tiempo real: el salto que da tu PC gamer | GridialHub",
   description:
-    "La inteligencia artificial ya está dentro de tu GPU, tu placa madre y tu sistema para darte más FPS, menos lag y mejor estabilidad en juegos.",
+    "La inteligencia artificial ya está dentro de tu GPU, tus drivers y tu sistema para darte más FPS, mejor calidad visual y menos lag. Te explico cómo funciona y cómo aprovecharla.",
 };
 
-export default function IAFPSPage() {
+export default function IaFpsPage() {
   return (
-    <article className="card" style={{ padding: 24, borderRadius: 18 }}>
-      {/* CABECERA DEL ARTÍCULO */}
-      <header style={{ display: "grid", gap: 12 }}>
-        <p className="meta">
-          Publicado el <b>12/11/2025</b> • <b>7 min de lectura</b> • Etiquetas:{" "}
-          <span>IA, rendimiento, GPU, NVIDIA, AMD, gaming, FPS</span>
-        </p>
-
-        <h1
+    <article
+      className="card"
+      style={{ padding: 20, borderRadius: 16, display: "grid", gap: 16 }}
+    >
+      {/* Banner superior */}
+      <div
+        style={{
+          marginBottom: 4,
+          borderRadius: 14,
+          overflow: "hidden",
+          maxHeight: 360,
+        }}
+      >
+        <img
+          src="/articulos/banner_ia_fps.png"
+          alt="Tarjeta gráfica con elementos de inteligencia artificial mejorando los FPS"
           style={{
-            fontSize: "clamp(26px, 3vw, 34px)",
-            fontWeight: 900,
-            margin: "4px 0 8px",
+            width: "100%",
+            display: "block",
+            objectFit: "cover",
           }}
-        >
+        />
+      </div>
+
+      {/* Encabezado */}
+      <header style={{ marginBottom: 8 }}>
+        <h1 style={{ marginBottom: 8 }}>
           Cómo la IA está optimizando tus FPS en tiempo real: el salto que da tu
           PC gamer
         </h1>
-
-        {/* BANNER PRINCIPAL */}
-        <figure className="article-image" style={{ margin: "12px 0 0" }}>
-          <img
-            src="/articulos/banner_ia_fps.png"
-            alt="Ilustración de IA optimizando FPS en una PC gamer"
-            style={{
-              width: "100%",
-              borderRadius: 14,
-              display: "block",
-            }}
-          />
-          <figcaption className="meta" style={{ marginTop: 6 }}>
-            La inteligencia artificial ya trabaja dentro de tu GPU y sistema,
-            ajustando recursos para exprimir cada cuadro por segundo.
-          </figcaption>
-        </figure>
+        <p className="meta">
+          {new Date("2025-11-12").toLocaleDateString("es-VE")} • 7 min de
+          lectura
+        </p>
+        <div
+          style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 8 }}
+        >
+          <span className="badge">IA</span>
+          <span className="badge">rendimiento</span>
+          <span className="badge">GPU</span>
+          <span className="badge">NVIDIA</span>
+          <span className="badge">AMD</span>
+          <span className="badge">gaming</span>
+          <span className="badge">FPS</span>
+        </div>
       </header>
 
-      {/* CUERPO DEL ARTÍCULO */}
-      <section
-        className="article-body"
-        style={{ marginTop: 20, display: "grid", gap: 18 }}
-      >
+      {/* Contenido del artículo */}
+      <div className="article-content">
         <p>
           Durante años, los gamers hemos perseguido una meta clara:{" "}
           <b>más FPS y mejor rendimiento sin sacrificar calidad</b>. Subir la
           tasa de cuadros por segundo siempre ha sido una mezcla de ajustar
-          configuraciones, mejorar componentes y rezar porque el juego esté bien
-          optimizado. Pero algo está cambiando en 2025: la{" "}
-          <b>inteligencia artificial (IA)</b> ahora interviene activamente para
-          darte más fluidez y eficiencia, sin que tengas que mover un solo
-          control deslizante.
+          gráficos, bajar sombras, desactivar efectos y cruzar los dedos para
+          que el juego esté bien optimizado.
+        </p>
+
+        <p>
+          En 2025 eso está cambiando. La inteligencia artificial (IA) ya no es
+          solo algo que usan los desarrolladores: ahora está{" "}
+          <b>dentro de tu GPU, tus drivers y hasta tu sistema operativo</b>,
+          ayudando a que los juegos corran más fluidos, se vean mejor y usen
+          menos recursos.
         </p>
 
         <h3>De la fuerza bruta a la inteligencia</h3>
         <p>
-          Antes, el rendimiento dependía casi exclusivamente del poder físico
-          del hardware: entre más núcleos, más VRAM o más MHz, mejor. Hoy, el
-          rendimiento también depende de la{" "}
-          <b>capacidad del sistema para aprender</b>. La IA analiza los patrones
-          de juego, predice qué recursos va a necesitar el sistema y los asigna
-          justo a tiempo. Es como si tu PC aprendiera a jugar contigo.
+          Antes, el rendimiento dependía casi por completo del{" "}
+          <b>poder físico del hardware</b>: más núcleos, más VRAM, relojes más
+          altos. Hoy, el rendimiento también depende de qué tan bien{" "}
+          <b>tu PC “entiende” lo que está pasando en pantalla</b>.
         </p>
 
         <p>
-          NVIDIA, AMD e Intel están apostando por este camino. Tecnologías como{" "}
-          <b>DLSS 4 (Deep Learning Super Sampling)</b> y{" "}
-          <b>FSR 4 (FidelityFX Super Resolution)</b> usan redes neuronales que
-          “recrean” cuadros enteros, logrando que tu GPU genere más FPS sin
-          renderizar cada detalle de forma completa. En palabras simples:{" "}
-          <b>tu GPU “imagina” los cuadros que faltan</b>, y lo hace tan bien que
-          casi no puedes notar la diferencia.
+          Tecnologías como <b>DLSS</b> (NVIDIA), <b>FSR</b> (AMD) o{" "}
+          <b>XeSS</b> (Intel) usan redes neuronales para reconstruir la imagen.
+          En lugar de renderizar cada cuadro a resolución completa, tu GPU
+          trabaja a una resolución más baja y la IA se encarga de{" "}
+          <b>“imaginar” los detalles que faltan</b>.
         </p>
+
+        <p>
+          El resultado: <b>más FPS</b> con una calidad visual que, en muchos
+          casos, se ve igual o incluso mejor que el render nativo.
+        </p>
+
+        {/* Imagen interna a mitad del artículo */}
+        <figure
+          className="article-image"
+          style={{
+            margin: "18px 0",
+            borderRadius: 14,
+            overflow: "hidden",
+            border: "1px solid var(--border)",
+          }}
+        >
+          <img
+            src="/articulos/mitad_ia_fps.png"
+            alt="Representación visual de IA optimizando FPS en tiempo real"
+            style={{ width: "100%", display: "block", objectFit: "cover" }}
+          />
+          <figcaption className="meta" style={{ padding: 8 }}>
+            La IA analiza la escena, ajusta resolución y genera cuadros
+            adicionales para aumentar los FPS sin perder calidad.
+          </figcaption>
+        </figure>
 
         <h3>Más allá de los frames: rendimiento dinámico</h3>
         <p>
-          La inteligencia artificial no solo mejora lo que ves en pantalla.
-          También optimiza lo que ocurre dentro de tu PC: temperatura, energía,
-          frecuencia de reloj y distribución de tareas entre CPU y GPU. Placas
-          madre modernas de marcas como ASUS y Gigabyte ya incluyen{" "}
-          <b>módulos de IA</b> que detectan el tipo de carga (por ejemplo, un
-          juego competitivo o una edición en DaVinci Resolve) y ajustan
-          automáticamente el rendimiento para priorizar lo importante.
+          La IA no solo toca la imagen final. También ayuda a gestionar{" "}
+          <b>temperaturas, energía y cargas de trabajo</b>. Placas madre
+          modernas y software de fabricantes como ASUS, MSI o Gigabyte ya
+          incluyen perfiles que analizan el tipo de uso: no es lo mismo jugar
+          un shooter competitivo que editar un video en DaVinci Resolve.
         </p>
 
         <p>
-          Por ejemplo, si estás jugando un shooter competitivo, la IA reduce la
-          latencia, ajusta los ventiladores y mantiene estable la frecuencia del
-          CPU para evitar bajones repentinos. Si cambias a un juego más
-          cinemático, redistribuye energía hacia la GPU y libera procesos
-          innecesarios del sistema. Es optimización en tiempo real.
+          En un juego competitivo, el sistema prioriza estabilidad, baja
+          latencia y FPS altos. En un título más cinemático, la IA puede
+          privilegiar calidad visual y efectos avanzados, equilibrando cada
+          recurso para que la experiencia se vea “next-gen” sin romper el
+          rendimiento.
         </p>
 
         <h3>Ventajas que ya puedes notar</h3>
         <ul>
           <li>
-            <b>FPS más altos:</b> el sistema predice la demanda de cada escena,
-            generando cuadros intermedios y reduciendo el trabajo total de la
-            GPU.
+            <b>Más FPS sin cambiar de GPU:</b> activar DLSS/FSR/XeSS puede darte
+            un salto de rendimiento importante en resoluciones como 1440p o
+            4K.
           </li>
           <li>
-            <b>Menor consumo energético:</b> al usar IA, el hardware evita
-            procesar datos redundantes, ahorrando vatios y bajando temperatura.
+            <b>Menor consumo energético:</b> al no tener que renderizar cada
+            píxel, la GPU trabaja de forma más inteligente y eficiente.
           </li>
           <li>
-            <b>Juegos más fluidos:</b> la latencia baja y las caídas de
-            rendimiento son menos frecuentes.
+            <b>Juegos más estables:</b> menos caídas bruscas de FPS en escenas
+            pesadas.
           </li>
           <li>
-            <b>Calidad visual constante:</b> la IA mantiene la nitidez incluso
-            cuando el juego exige mucho al hardware.
+            <b>Calidad visual sorprendente:</b> la IA mantiene nitidez y detalle
+            incluso cuando el juego exige mucho al hardware.
           </li>
         </ul>
 
-        <h3>El papel del software</h3>
+        <h3>El papel del software y los drivers</h3>
         <p>
-          Los controladores modernos (drivers) de NVIDIA, AMD e Intel son más
-          que simples “actualizaciones”. Traen modelos de IA preentrenados que
-          se ajustan a cada juego, y algunos hasta aprenden con tu propio estilo
-          de uso. Además, softwares como <b>GeForce Experience</b> o{" "}
-          <b>AMD Adrenalin</b> permiten activar optimizaciones automáticas con
-          un clic.
+          Los drivers modernos ya no son simples “controladores”; muchos traen
+          modelos de IA integrados. Herramientas como{" "}
+          <b>GeForce Experience</b> o <b>AMD Adrenalin</b> permiten aplicar
+          ajustes recomendados para cada juego, activar escalado por IA y
+          controlar perfiles de rendimiento con un clic.
         </p>
 
         <p>
-          Incluso Windows 11 y los nuevos procesadores Intel Core Ultra integran{" "}
-          <b>NPUs</b> (unidades de procesamiento neuronal) que alivian la carga
-          del CPU al manejar tareas de IA, streaming y multitarea. Esto
-          significa que mientras juegas, el sistema puede procesar IA de fondo —
-          por ejemplo, mejorar imagen, audio o rendimiento — sin afectar tus
-          FPS.
+          Además, sistemas como <b>Windows 11</b> y los procesadores{" "}
+          <b>Intel Core Ultra</b> o equivalentes con NPU empiezan a descargar
+          tareas de IA (filtros de video, cancelación de ruido, mejora de
+          imagen) a unidades especializadas, dejando al CPU y a la GPU libres
+          para el juego.
         </p>
 
-        {/* IMAGEN INTERNA DEL ARTÍCULO */}
-        <figure className="article-image" style={{ marginTop: 8 }}>
-          <img
-            src="/articulos/mitad_ia_fps.png"
-            alt="Visual futurista de IA optimizando el rendimiento de juegos"
-            style={{
-              width: "100%",
-              borderRadius: 14,
-              display: "block",
-            }}
-          />
-          <figcaption className="meta" style={{ marginTop: 6 }}>
-            La combinación de GPU, IA y software hace posible que tus FPS
-            aumenten sin cambiar físicamente de tarjeta gráfica.
-          </figcaption>
-        </figure>
-
-        <h3>Limitaciones y realidades</h3>
+        <h3>Limitaciones y realidad</h3>
         <p>
-          Aunque suena a “tecnología mágica”, hay matices. No todos los juegos
-          soportan estas funciones todavía, y en algunos casos, la generación de
-          cuadros puede crear leves artefactos visuales (ghosting o duplicación
-          de movimiento). Por eso, siempre es clave mantener los drivers
-          actualizados y probar ajustes manuales antes de depender completamente
-          de la IA.
+          Aunque parezca magia, la IA no es perfecta. Hay juegos donde la
+          generación de cuadros puede añadir algo de ghosting o artefactos.
+          También hay títulos que todavía no soportan estas tecnologías o que
+          requieren parches para funcionar bien.
         </p>
 
         <p>
-          También hay que entender que la IA no reemplaza al hardware físico:
-          una GPU débil seguirá teniendo sus límites, y una mala ventilación
-          seguirá afectando el rendimiento. La IA{" "}
-          <b>optimiza lo que ya tienes</b>, pero no hace milagros.
+          Y, por supuesto, una GPU muy vieja o un PC mal refrigerado seguirán
+          teniendo sus propios límites. La IA{" "}
+          <b>optimiza lo que ya tienes, pero no hace milagros</b>.
         </p>
 
         <h3>¿Qué puedes hacer ahora mismo?</h3>
         <ol>
+          <li>Actualiza tus drivers de GPU y, si es posible, la BIOS.</li>
           <li>
-            Actualiza tus drivers y BIOS — muchas funciones de IA se activan
-            así.
-          </li>
-          <li>Activa DLSS, FSR o XeSS en los juegos compatibles.</li>
-          <li>
-            Explora los modos de “AI Optimization” en tu software de GPU o
-            placa madre.
+            Activa <b>DLSS, FSR o XeSS</b> en los juegos compatibles.
           </li>
           <li>
-            Monitorea tus FPS antes y después para medir el impacto real.
+            Revisa el panel de control de tu GPU: muchos incluyen modos
+            automáticos de “optimización inteligente”.
           </li>
           <li>
-            Evita mezclar varios sistemas de IA simultáneamente (puede causar
-            conflictos o pérdidas de rendimiento).
+            Mide tus FPS antes y después de activar estas funciones para ver el
+            impacto real.
+          </li>
+          <li>
+            Evita mezclar varias tecnologías de escalado a la vez; usa una bien
+            configurada en lugar de tres mal combinadas.
           </li>
         </ol>
 
-        <h3>El futuro del gaming inteligente</h3>
-        <p>
-          Todo indica que la próxima generación de hardware gamer será tan
-          inteligente como potente. NVIDIA ya trabaja en tarjetas con
-          procesadores de IA dedicados, mientras que AMD y ASUS integran
-          sensores que aprenden del comportamiento térmico del equipo. El
-          resultado será un ecosistema donde el hardware se autoajusta a ti:
-          juegos más estables, PCs más silenciosos y menor desperdicio de
-          energía.
-        </p>
-
-        <h3>Conclusión</h3>
+        <h3>Conclusión: tu PC ya piensa por ti</h3>
         <p>
           La inteligencia artificial no vino a reemplazar al gamer ni al
-          hardware, sino a elevarlos. Cada vez que inicias un juego, hay un
-          pequeño “asistente invisible” gestionando recursos, prediciendo
-          escenas y mejorando tu experiencia cuadro a cuadro. Y eso es apenas el
-          comienzo: en pocos años, veremos GPUs que optimizan su rendimiento
-          según el estilo de cada jugador y PCs que equilibran potencia y
-          consumo con precisión quirúrgica.
+          hardware, sino a <b>exprimir mejor cada componente</b>. Cada vez que
+          arrancas un juego moderno, hay sistemas analizando tu escena,
+          prediciendo lo que viene y ajustando recursos en tiempo real.
         </p>
 
         <p>
-          Para los creadores de contenido, streamers y jugadores competitivos,
-          esto no es solo una mejora técnica — es una nueva forma de entender el
-          rendimiento. Así que la próxima vez que veas tus FPS subir sin tocar
-          un solo ajuste, recuerda: <b>tu PC ya está pensando por ti</b>.
+          Para jugadores competitivos, streamers y creadores de contenido,
+          esto significa una cosa: <b>más estabilidad, mejores FPS y menos
+          tiempo peleando con menús de configuración</b>. Y esto es solo el
+          inicio. En los próximos años veremos GPUs y PCs cada vez más
+          “conscientes” del tipo de juego, de tu estilo y de lo que necesitas en
+          cada momento.
         </p>
-      </section>
+
+        <p>
+          Así que, la próxima vez que notes que tu juego va más suave después
+          de una actualización de drivers, recuerda: tal vez no fue suerte, fue
+          la IA haciendo su trabajo en segundo plano.
+        </p>
+      </div>
     </article>
   );
 }
-
