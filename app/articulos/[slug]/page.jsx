@@ -1,63 +1,24 @@
 // app/articulos/[slug]/page.jsx
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import { posts } from '../data';
+
+// Importamos los componentes de cada artículo
+import IaFpsArticle from '../posts/ia_fps/page';
+import ArkRaidersArticle from '../posts/ark-raiders/page';
+
+// Mapeamos el slug de la URL al componente que ya existe
+const articleMap = {
+  'ia-fps': IaFpsArticle,
+  'ark-raiders': ArkRaidersArticle,
+};
 
 export default function ArticuloPage({ params }) {
   const { slug } = params;
 
-  const post = posts.find((p) => p.slug === slug);
+  const ArticleComponent = articleMap[slug];
 
-  if (!post) {
+  if (!ArticleComponent) {
     notFound();
   }
 
-  return (
-    <main className="max-w-3xl mx-auto px-4 py-10">
-      <Link
-        href="/articulos"
-        className="inline-block mb-6 text-sm text-gray-400 hover:text-gray-200"
-      >
-        ← Volver a artículos
-      </Link>
-
-      <article>
-        <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
-
-        {post.date && (
-          <p className="text-sm text-gray-400 mb-4">
-            {post.date} {post.readTime ? `· ${post.readTime}` : ''}
-          </p>
-        )}
-
-        {post.image && (
-          <div className="mb-6">
-            <img
-              src={post.image}
-              alt={post.title}
-              className="w-full rounded-lg"
-            />
-          </div>
-        )}
-
-        {post.excerpt && (
-          <p className="text-lg text-gray-200 mb-6">{post.excerpt}</p>
-        )}
-
-        {Array.isArray(post.content) ? (
-          post.content.map((parrafo, idx) => (
-            <p key={idx} className="mb-4 leading-relaxed text-gray-200">
-              {parrafo}
-            </p>
-          ))
-        ) : (
-          post.content && (
-            <p className="mb-4 leading-relaxed text-gray-200">
-              {post.content}
-            </p>
-          )
-        )}
-      </article>
-    </main>
-  );
+  return <ArticleComponent />;
 }
