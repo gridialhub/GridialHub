@@ -15,7 +15,7 @@ export default function ArticuloPage({ params }) {
   return (
     <main className="max-w-3xl mx-auto px-4 py-10">
       <Link
-        href="/articulos/posts"
+        href="/articulos"
         className="inline-block mb-6 text-sm text-gray-400 hover:text-gray-200"
       >
         ← Volver a artículos
