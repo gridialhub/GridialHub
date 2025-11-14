@@ -1,88 +1,63 @@
 // app/articulos/[slug]/page.jsx
-import { notFound } from "next/navigation";
-import { posts } from "../posts";
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import { posts } from '../posts/posts';
 
-// Metadata dinámica por artículo
-export function generateMetadata({ params }) {
-  const post = posts.find((p) => p.slug === params.slug);
+export default function ArticuloPage({ params }) {
+  const { slug } = params;
 
-  if (!post) {
-    return {
-      title: "Artículo no encontrado | GridialHub",
-      description: "El artículo que buscas no existe o fue movido.",
-    };
-  }
-
-  return {
-    title: `${post.title} | GridialHub`,
-    description: post.excerpt,
-  };
-}
-
-export default function ArticuloDetalle({ params }) {
-  const post = posts.find((p) => p.slug === params.slug);
+  const post = posts.find((p) => p.slug === slug);
 
   if (!post) {
-    return notFound();
+    notFound();
   }
 
   return (
-    <article
-      className="card"
-      style={{ padding: 20, borderRadius: 16, display: "grid", gap: 16 }}
-    >
-      {/* Banner si existe */}
-      {post.banner && (
-        <div
-          style={{
-            marginBottom: 4,
-            borderRadius: 14,
-            overflow: "hidden",
-            maxHeight: 360,
-          }}
-        >
-          <img
-            src={post.banner}
-            alt={post.title}
-            style={{
-              width: "100%",
-              display: "block",
-              objectFit: "cover",
-            }}
-          />
-        </div>
-      )}
+    <main className="max-w-3xl mx-auto px-4 py-10">
+      <Link
+        href="/articulos/posts"
+        className="inline-block mb-6 text-sm text-gray-400 hover:text-gray-200"
+      >
+        ← Volver a artículos
+      </Link>
 
-      {/* Encabezado del artículo */}
-      <header style={{ marginBottom: 8 }}>
-        <h1 style={{ marginBottom: 8 }}>{post.title}</h1>
-        <p className="meta">
-          {new Date(post.date).toLocaleDateString("es-VE")} •{" "}
-          {post.readingTime}
-        </p>
-        {post.tags && (
-          <div
-            style={{
-              display: "flex",
-              gap: 8,
-              flexWrap: "wrap",
-              marginTop: 8,
-            }}
-          >
-            {post.tags.map((tag) => (
-              <span key={tag} className="badge">
-                {tag}
-              </span>
-            ))}
+      <article>
+        <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
+
+        {post.date && (
+          <p className="text-sm text-gray-400 mb-4">
+            {post.date} {post.readTime ? `· ${post.readTime}` : ''}
+          </p>
+        )}
+
+        {post.image && (
+          <div className="mb-6">
+            <img
+              src={post.image}
+              alt={post.title}
+              className="w-full rounded-lg"
+            />
           </div>
         )}
-      </header>
 
-      {/* Contenido HTML del artículo */}
-      <div
-        className="article-content"
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      />
-    </article>
+        {post.excerpt && (
+          <p className="text-lg text-gray-200 mb-6">{post.excerpt}</p>
+        )}
+
+        {Array.isArray(post.content) ? (
+          post.content.map((parrafo, idx) => (
+            <p key={idx} className="mb-4 leading-relaxed text-gray-200">
+              {parrafo}
+            </p>
+          ))
+        ) : (
+          post.content && (
+            <p className="mb-4 leading-relaxed text-gray-200">
+              {post.content}
+            </p>
+          )
+        )}
+      </article>
+    </main>
   );
 }
