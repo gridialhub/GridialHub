@@ -1,6 +1,6 @@
 // app/articulos/page.jsx
 import Link from "next/link";
-import { posts } from "./data";
+import { posts } from "./posts";
 
 export const metadata = {
   title: "Artículos | GridialHub",
@@ -15,6 +15,8 @@ export default function ArticulosPage() {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          gap: 12,
+          marginBottom: 12,
         }}
       >
         <h1 style={{ margin: 0 }}>Artículos</h1>
@@ -26,28 +28,36 @@ export default function ArticulosPage() {
           <Link
             key={post.slug}
             href={`/articulos/${post.slug}`}
-            className="post-card-link"
+            className="clickable-card-link"
+            style={{ textDecoration: "none", color: "inherit" }}
           >
-            <article className="post-card">
-              {/* MINIATURA / PORTADA */}
-              {post.cover ? (
-                <div className="post-thumb with-img">
-                  <img src={post.cover} alt={post.title} />
-                </div>
-              ) : (
-                <div className="post-thumb thumb-game" />
-              )}
+            <article className="post-card clickable-card">
+              {/* Miniatura */}
+              <div
+                className={`post-thumb ${post.cover ? "" : "thumb-game"}`}
+                style={
+                  post.cover
+                    ? {
+                        backgroundImage: `url(${post.cover})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }
+                    : {}
+                }
+              />
 
-              {/* CUERPO DE LA TARJETA */}
+              {/* Contenido */}
               <div className="post-body">
-                <h4>{post.title}</h4>
+                <h4 style={{ marginBottom: 4 }}>{post.title}</h4>
 
                 <p className="meta">
                   {new Date(post.date).toLocaleDateString("es-VE")} •{" "}
                   {post.readingTime}
                 </p>
 
-                <p className="meta">{post.excerpt}</p>
+                <p className="meta" style={{ marginTop: 4 }}>
+                  {post.excerpt}
+                </p>
 
                 <div
                   style={{
