@@ -8,7 +8,7 @@ export const posts = [
     readTime: '5 min',
     excerpt:
       'Guía paso a paso para mejorar el rendimiento de tus juegos usando herramientas de IA sin perder calidad.',
-    image: '/articulos/ia-fps-banner.jpg', // luego cambiamos el nombre si hace falta
+    href: '/articulos/posts/ia_fps', // 👈 RUTA REAL DEL ARTÍCULO
   },
   {
     slug: 'ark-raiders',
@@ -17,6 +17,6 @@ export const posts = [
     readTime: '6 min',
     excerpt:
       'Probamos Ark Raiders y te contamos qué tal se siente en 2025, tanto en gameplay como en rendimiento.',
-    image: '/articulos/ark-raiders-banner.jpg', // este también lo ajustamos después
+    href: '/articulos/posts/ark-raiders', // 👈 RUTA REAL DEL ARTÍCULO
   },
 ];
