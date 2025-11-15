@@ -3,12 +3,13 @@ import Link from "next/link";
 
 const posts = [
   {
-    slug: "ia-fps",
+    slug: "ia_fps",
     title: "Cómo usar IA para subir FPS en tus juegos",
     meta: "14 de noviembre de 2025 · 5 min",
     excerpt:
       "Guía paso a paso para mejorar el rendimiento de tus juegos usando herramientas de IA sin perder calidad.",
-    href: "/articulos/ia-fps",
+    // 👉 RUTA REAL DEL ARTÍCULO SEGÚN TU ESTRUCTURA
+    href: "/articulos/posts/ia_fps",
     image: "/articulos/mitad-ia-fps.png",
     thumbClass: "thumb-pc",
   },
@@ -18,7 +19,8 @@ const posts = [
     meta: "14 de noviembre de 2025 · 6 min",
     excerpt:
       "Probamos Ark Raiders y te contamos qué tal se siente en 2025, tanto en gameplay como en rendimiento.",
-    href: "/articulos/ark-raiders",
+    // 👉 RUTA REAL DEL ARTÍCULO
+    href: "/articulos/posts/ark-raiders",
     image: "/articulos/thumbnail_ark_raiders_600x400.png",
     thumbClass: "thumb-game",
   },
