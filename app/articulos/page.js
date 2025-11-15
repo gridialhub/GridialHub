@@ -4,7 +4,7 @@ import Link from "next/link";
 const posts = [
   {
     slug: "ia_fps",
-    title: "Cómo usar IA para subir FPS en tus juegos",
+    title: "Cómo la IA está optimizando tus FPS en tiempo real: el salto que da tu PC gamer",
     meta: "14 de noviembre de 2025 · 5 min",
     excerpt:
       "Guía paso a paso para mejorar el rendimiento de tus juegos usando herramientas de IA sin perder calidad.",
@@ -71,3 +71,4 @@ export default function ArticulosPage() {
     </main>
   );
 }
+
