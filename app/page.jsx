@@ -6,7 +6,7 @@ import { posts } from "./articulos/posts";
 
 export default function Home() {
   // Tomamos los 2 artículos más recientes
-  const latestPosts = posts.slice(0, 2);
+  const latestPosts = posts.slice(0, 4);
 
   return (
     <div className="home" style={{ display: "grid", gap: 24 }}>
@@ -157,3 +157,4 @@ export default function Home() {
     </div>
   );
 }
+
