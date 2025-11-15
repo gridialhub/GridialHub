@@ -32,7 +32,7 @@ export default function ArkRaidersPage() {
       <header style={{ marginBottom: 8 }}>
         <h1>ARK Raiders: cómo la IA está llevando el gameplay a otro nivel</h1>
         <p className="meta">
-          {new Date("2025-11-12").toLocaleDateString("es-VE")} • 7 min de lectura
+          {new Date("2025-11-12").toLocaleDateString("es-VE")}
         </p>
 
         <div
