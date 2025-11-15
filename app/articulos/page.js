@@ -3,26 +3,36 @@ import Link from "next/link";
 
 const posts = [
   {
-    slug: "ia_fps",
-    title: "Cómo la IA está optimizando tus FPS en tiempo real: el salto que da tu PC gamer",
-    meta: "14 de noviembre de 2025 · 5 min",
+    slug: "posts/ia_fps",
+    title:
+      "Cómo la IA está optimizando tus FPS en tiempo real: el salto que da tu PC gamer",
+    meta: "14 de noviembre de 2025 · 7 min de lectura",
     excerpt:
-      "Guía paso a paso para mejorar el rendimiento de tus juegos usando herramientas de IA sin perder calidad.",
-    // 👉 RUTA REAL DEL ARTÍCULO SEGÚN TU ESTRUCTURA
+      "La inteligencia artificial ya está dentro de tu GPU, tus drivers y tu sistema para darte más FPS, mejor calidad visual y menos lag. Te explico cómo funciona y cómo aprovecharla.",
     href: "/articulos/posts/ia_fps",
+    // usa aquí la miniatura que ya tengas funcionando
     image: "/articulos/mitad-ia-fps.png",
     thumbClass: "thumb-pc",
   },
   {
-    slug: "ark-raiders",
+    slug: "posts/ark-raiders",
     title: "ARK Raiders: cómo la IA está llevando el gameplay a otro nivel",
-    meta: "14 de noviembre de 2025 · 6 min",
+    meta: "14 de noviembre de 2025 · 7 min de lectura",
     excerpt:
-      "Probamos Ark Raiders y te contamos qué tal se siente en 2025, tanto en gameplay como en rendimiento.",
-    // 👉 RUTA REAL DEL ARTÍCULO
+      "ARK Raiders combina acción cooperativa con inteligencia artificial avanzada para crear enfrentamientos dinámicos, impredecibles y desafiantes.",
     href: "/articulos/posts/ark-raiders",
     image: "/articulos/thumbnail_ark_raiders_600x400.png",
     thumbClass: "thumb-game",
+  },
+  {
+    slug: "posts/que-grafica-comprar-sin-botar-la-plata",
+    title: "Qué tarjeta gráfica comprar en 2025 sin botar la plata",
+    meta: "14 de noviembre de 2025 · 8 min de lectura",
+    excerpt:
+      "Guía clara para elegir la GPU correcta según tu monitor, tus juegos y tu presupuesto, evitando el sobreprecio y el marketing vacío.",
+    href: "/articulos/posts/que-grafica-comprar-sin-botar-la-plata",
+    image: "/articulos/mitad-que-grafica-comprar.png",
+    thumbClass: "thumb-pc",
   },
 ];
 
@@ -71,5 +81,3 @@ export default function ArticulosPage() {
     </main>
   );
 }
-
-
