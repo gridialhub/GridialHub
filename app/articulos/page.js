@@ -1,6 +1,3 @@
-// app/articulos/page.js
-import Link from "next/link";
-
 const posts = [
   {
     slug: "ia-fps",
@@ -9,7 +6,7 @@ const posts = [
     excerpt:
       "Guía paso a paso para mejorar el rendimiento de tus juegos usando herramientas de IA sin perder calidad.",
     href: "/articulos/posts/ia_fps",
-    image: "/public/articulos/mitad ia+fps.png", // ajusta al nombre real
+    image: "/articulos/mitad ia+fps.png",   // 👈 aquí tu miniatura
     thumbClass: "thumb-pc",
   },
   {
@@ -19,10 +16,11 @@ const posts = [
     excerpt:
       "Probamos Ark Raiders y te contamos qué tal se siente en 2025, tanto en gameplay como en rendimiento.",
     href: "/articulos/posts/ark-raiders",
-      image: "/articulos/thumbnail_ark_raiders_600x400.png",
+    image: "/articulos/thumbnail_ark_raiders_600x400.png",
     thumbClass: "thumb-game",
   },
 ];
+
 
 export default function ArticulosPage() {
   return (
@@ -74,5 +72,6 @@ export default function ArticulosPage() {
     </main>
   );
 }
+
 
 
