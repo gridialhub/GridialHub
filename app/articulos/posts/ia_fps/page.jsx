@@ -23,7 +23,7 @@ export default function IaFpsPage() {
         }}
       >
         <img
-          src="/articulos/banner_ia_fps.png"
+          src="/articulos/banner ia+fps.png"  // 👈 nuevo banner
           alt="Tarjeta gráfica con elementos de inteligencia artificial mejorando los FPS"
           style={{
             width: "100%",
@@ -106,7 +106,7 @@ export default function IaFpsPage() {
           }}
         >
           <img
-            src="/articulos/mitad_ia_fps.png"
+            src="/articulos/mitad ia+fps.png"  // 👈 nueva imagen del medio
             alt="Representación visual de IA optimizando FPS en tiempo real"
             style={{ width: "100%", display: "block", objectFit: "cover" }}
           />
