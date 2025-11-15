@@ -10,7 +10,7 @@ export const metadata = {
 export default function IaFpsPage() {
   return (
     <article
-      className="card"
+      className="card article-page"
       style={{ padding: 20, borderRadius: 16, display: "grid", gap: 16 }}
     >
       {/* Banner superior */}
@@ -19,11 +19,11 @@ export default function IaFpsPage() {
           marginBottom: 4,
           borderRadius: 14,
           overflow: "hidden",
-          maxHeight: 360, // limita altura del banner
+          maxHeight: 280, // altura razonable para el banner
         }}
       >
         <img
-          src="/articulos/banner-ia-fps.png" // 👈 nombre sin espacios ni +
+          src="/articulos/banner-ia-fps.png"
           alt="Tarjeta gráfica con elementos de inteligencia artificial mejorando los FPS"
           style={{
             width: "100%",
@@ -103,11 +103,10 @@ export default function IaFpsPage() {
             borderRadius: 14,
             overflow: "hidden",
             border: "1px solid var(--border)",
-            maxHeight: 360, // 👈 limita altura de la imagen del medio
           }}
         >
           <img
-            src="/articulos/mitad-ia-fps.png" // 👈 también renombrada
+            src="/articulos/mitad-ia-fps.png"
             alt="Representación visual de IA optimizando FPS en tiempo real"
             style={{ width: "100%", display: "block", objectFit: "cover" }}
           />
