@@ -9,6 +9,8 @@ export const posts = [
     excerpt:
       "Guía clara para elegir la GPU correcta según tu monitor, tus juegos y tu presupuesto, evitando el sobreprecio y el marketing vacío.",
     href: "/articulos/posts/que-grafica-comprar-sin-botar-la-plata",
+    bannerImage: "/articulos/duda-sobre-tarjeta.png",
+    midImage: "/articulos/Firefly-jugando.png",
   },
   {
     slug: "posts/ia_fps",
@@ -19,6 +21,9 @@ export const posts = [
     excerpt:
       "La inteligencia artificial ya está dentro de tu GPU, tus drivers y tu sistema para darte más FPS, mejor calidad visual y menos lag.",
     href: "/articulos/posts/ia_fps",
+    // Si después le quieres poner imágenes, puedes agregar:
+    // bannerImage: "/articulos/lo-que-sea.png",
+    // midImage: "/articulos/otra-imagen.png",
   },
   {
     slug: "posts/ark-raiders",
