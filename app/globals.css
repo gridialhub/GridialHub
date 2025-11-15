@@ -629,6 +629,23 @@ a, button {
   transform: translateY(-4px);
   box-shadow: 0 0 18px rgba(255, 255, 255, 0.08);
 }
+/* ----- Layout de páginas de artículo ----- */
+.article-page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Limitar altura de imágenes internas y recortarlas bonito */
+.article-content figure {
+  max-width: 900px;
+  margin: 24px auto;
+}
+
+.article-content figure img {
+  max-height: 360px;   /* baja a 300 si aún las ves grandes */
+  object-fit: cover;
+}
+
 
 
 
