@@ -1,5 +1,5 @@
 // app/articulos/page.js
-import Link from "next/link";   // 👈 IMPORTANTE, ESTE IMPORT NO PUEDE FALTAR
+import Link from "next/link";
 
 const posts = [
   {
@@ -8,17 +8,19 @@ const posts = [
     meta: "14 de noviembre de 2025 · 5 min",
     excerpt:
       "Guía paso a paso para mejorar el rendimiento de tus juegos usando herramientas de IA sin perder calidad.",
-    href: "/articulos/posts/ia_fps",
-    image: "/articulos/mitad ia+fps.png",              // tu miniatura
+    // 👉 Ruta real del artículo
+    href: "/articulos/ia-fps",
+    // 👉 Miniatura que ya renombramos sin espacios ni '+'
+    image: "/articulos/mitad-ia-fps.png",
     thumbClass: "thumb-pc",
   },
   {
     slug: "ark-raiders",
-    title: "ARK Raiders: cómo la IA está llevando el gameplay a otro nivel",
+    title: "Primeras impresiones de Ark Raiders",
     meta: "14 de noviembre de 2025 · 6 min",
     excerpt:
       "Probamos Ark Raiders y te contamos qué tal se siente en 2025, tanto en gameplay como en rendimiento.",
-    href: "/articulos/posts/ark-raiders",
+    href: "/articulos/ark-raiders",
     image: "/articulos/thumbnail_ark_raiders_600x400.png",
     thumbClass: "thumb-game",
   },
@@ -74,4 +76,3 @@ export default function ArticulosPage() {
     </main>
   );
 }
-
