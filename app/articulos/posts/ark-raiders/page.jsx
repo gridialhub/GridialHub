@@ -76,9 +76,7 @@ export default function ArkRaidersPage() {
             alt="Gameplay de ARK Raiders"
             style={{ width: "100%", display: "block", objectFit: "cover" }}
           />
-          <figcaption className="meta" style={{ padding: 8 }}>
-            Enemigos robóticos coordinándose dinámicamente en combate.
-          </figcaption>
+          {/* figcaption eliminado */}
         </figure>
 
         <h3>Una IA que se siente “viva”</h3>
