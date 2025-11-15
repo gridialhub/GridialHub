@@ -19,7 +19,7 @@ export default function IaFpsPage() {
           marginBottom: 4,
           borderRadius: 14,
           overflow: "hidden",
-          maxHeight: 280, // altura razonable para el banner
+          // OJO: ya no limitamos la altura aquí, dejamos que la imagen se vea completa
         }}
       >
         <img
@@ -27,8 +27,8 @@ export default function IaFpsPage() {
           alt="Tarjeta gráfica con elementos de inteligencia artificial mejorando los FPS"
           style={{
             width: "100%",
+            height: "auto",       // 👈 esto hace que se vea completa
             display: "block",
-            objectFit: "cover",
           }}
         />
       </div>
