@@ -14,7 +14,7 @@ const posts = [
   },
   {
     slug: "ark-raiders",
-    title: "Primeras impresiones de Ark Raiders",
+    title: "ARK Raiders: cómo la IA está llevando el gameplay a otro nivel",
     meta: "14 de noviembre de 2025 · 6 min",
     excerpt:
       "Probamos Ark Raiders y te contamos qué tal se siente en 2025, tanto en gameplay como en rendimiento.",
@@ -74,3 +74,4 @@ export default function ArticulosPage() {
     </main>
   );
 }
+
