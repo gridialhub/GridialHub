@@ -1,3 +1,6 @@
+// app/articulos/page.js
+import Link from "next/link";   // 👈 IMPORTANTE, ESTE IMPORT NO PUEDE FALTAR
+
 const posts = [
   {
     slug: "ia-fps",
@@ -6,7 +9,7 @@ const posts = [
     excerpt:
       "Guía paso a paso para mejorar el rendimiento de tus juegos usando herramientas de IA sin perder calidad.",
     href: "/articulos/posts/ia_fps",
-    image: "/articulos/mitad ia+fps.png",   // 👈 aquí tu miniatura
+    image: "/articulos/mitad ia+fps.png",              // tu miniatura
     thumbClass: "thumb-pc",
   },
   {
@@ -20,7 +23,6 @@ const posts = [
     thumbClass: "thumb-game",
   },
 ];
-
 
 export default function ArticulosPage() {
   return (
@@ -72,6 +74,3 @@ export default function ArticulosPage() {
     </main>
   );
 }
-
-
-
