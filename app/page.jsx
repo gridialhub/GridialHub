@@ -5,7 +5,7 @@ import Link from "next/link";
 import { posts } from "./articulos/posts";
 
 export default function Home() {
-  // Tomamos los 2 artículos más recientes
+  // Tomamos los 4 artículos más recientes
   const latestPosts = posts.slice(0, 4);
 
   return (
@@ -41,8 +41,8 @@ export default function Home() {
             GridialHub es un espacio creado para gamers, creadores de contenido
             y amantes de la tecnología. Aquí encontrarás artículos, guías,
             novedades, noticias, análisis y sorteos pensados para ayudarte a
-            mejorar tu experiencia de juego y mantenerte al día con lo último
-            en el mundo gaming.
+            mejorar tu experiencia de juego y mantenerte al día con lo último en
+            el mundo gaming.
             <br />
             <br />
             Nuestro objetivo es construir una comunidad donde cada visita aporte
@@ -80,11 +80,10 @@ export default function Home() {
         {/* GRID DE ARTÍCULOS */}
         <div className="post-grid" style={{ marginTop: 14 }}>
           {latestPosts.map((post) => {
-            // ===== SOLO AÑADIMOS ESTO =====
-            // Si el post ya trae cover desde ./articulos/posts, lo usamos.
-            // Si no, ponemos la miniatura según el slug.
-            let cover = post.cover || null;
+            // Primero intentamos usar cover, luego image desde ./articulos/posts
+            let cover = post.cover || post.image || null;
 
+            // Si aún así no hay, aplicamos fallback por slug (IA FPS / ARK)
             if (!cover) {
               const slug = String(post.slug || "").toLowerCase();
 
@@ -94,7 +93,6 @@ export default function Home() {
                 cover = "/articulos/thumbnail_ark_raiders_600x400.png";
               }
             }
-            // ===== FIN CAMBIO =====
 
             return (
               <Link
@@ -157,4 +155,3 @@ export default function Home() {
     </div>
   );
 }
-
