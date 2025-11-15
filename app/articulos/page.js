@@ -8,9 +8,7 @@ const posts = [
     meta: "14 de noviembre de 2025 · 5 min",
     excerpt:
       "Guía paso a paso para mejorar el rendimiento de tus juegos usando herramientas de IA sin perder calidad.",
-    // 👉 Ruta real del artículo
     href: "/articulos/ia-fps",
-    // 👉 Miniatura que ya renombramos sin espacios ni '+'
     image: "/articulos/mitad-ia-fps.png",
     thumbClass: "thumb-pc",
   },
@@ -29,7 +27,6 @@ const posts = [
 export default function ArticulosPage() {
   return (
     <main className="container page-fade">
-      {/* TÍTULO CENTRADO */}
       <h1
         style={{
           textAlign: "center",
@@ -40,11 +37,9 @@ export default function ArticulosPage() {
         Artículos
       </h1>
 
-      {/* CONTENEDOR PRINCIPAL */}
       <section className="card" style={{ marginTop: 0 }}>
         <h2 style={{ marginBottom: 8 }}>Últimos artículos</h2>
 
-        {/* GRID DE FICHAS */}
         <div className="post-grid">
           {posts.map((post) => (
             <Link
@@ -53,7 +48,6 @@ export default function ArticulosPage() {
               className="post-card-link clickable-card"
             >
               <article className="post-card">
-                {/* MINIATURA: imagen real si existe, si no degradé */}
                 {post.image ? (
                   <div className="post-thumb with-img">
                     <img src={post.image} alt={post.title} />
@@ -62,7 +56,6 @@ export default function ArticulosPage() {
                   <div className={`post-thumb ${post.thumbClass || ""}`} />
                 )}
 
-                {/* CONTENIDO DE LA FICHA */}
                 <div className="post-body">
                   <h4>{post.title}</h4>
                   <p className="meta">{post.meta}</p>
