@@ -9,7 +9,7 @@ const posts = [
     excerpt:
       "Guía paso a paso para mejorar el rendimiento de tus juegos usando herramientas de IA sin perder calidad.",
     href: "/articulos/posts/ia_fps",
-    image: "/articulos/ia_fps-miniatura.jpg", // ajusta al nombre real
+    image: "/public/articulos/mitad ia+fps.png", // ajusta al nombre real
     thumbClass: "thumb-pc",
   },
   {
@@ -74,4 +74,5 @@ export default function ArticulosPage() {
     </main>
   );
 }
+
 
