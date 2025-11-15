@@ -22,13 +22,12 @@ export default function QueGraficaComprarPage() {
         }}
       >
         {/* 
-          Puedes crear esta imagen:
-          public/articulos/banner-que-grafica-comprar.png
-          Por ahora, la ruta no rompe nada aunque la imagen no exista aún.
+          Banner real del artículo:
+          public/articulos/duda-sobre-tarjeta.png
         */}
         <img
-          src="/articulos/banner-que-grafica-comprar.png"
-          alt="Tarjeta gráfica gamer iluminada sobre un setup"
+          src="/articulos/duda-sobre-tarjeta.png"
+          alt="Persona con dudas sobre qué tarjeta gráfica comprar para su PC gamer"
           style={{ width: "100%", height: "auto", display: "block" }}
         />
       </div>
@@ -113,12 +112,12 @@ export default function QueGraficaComprarPage() {
             border: "1px solid var(--border)",
           }}
         >
-          {/* Crea algo tipo:
-              public/articulos/mitad-que-grafica-comprar.png
+          {/* Imagen real a mitad del artículo:
+              public/articulos/Firefly-jugando.png
           */}
           <img
-            src="/articulos/mitad-que-grafica-comprar.png"
-            alt="Comparación simple entre resoluciones y rendimiento de GPU"
+            src="/articulos/Firefly-jugando.png"
+            alt="Jugador probando rendimiento de su tarjeta gráfica en un juego"
             style={{ width: "100%", display: "block", objectFit: "cover" }}
           />
           <figcaption className="meta" style={{ padding: 8 }}>
@@ -309,4 +308,3 @@ export default function QueGraficaComprarPage() {
     </article>
   );
 }
-
