@@ -19,7 +19,7 @@ const posts = [
     excerpt:
       "Probamos Ark Raiders y te contamos qué tal se siente en 2025, tanto en gameplay como en rendimiento.",
     href: "/articulos/posts/ark-raiders",
-    image: "/articulos/ark-raiders-miniatura.jpg",
+      image: "/articulos/thumbnail_ark_raiders_600x400.png",
     thumbClass: "thumb-game",
   },
 ];
@@ -74,3 +74,4 @@ export default function ArticulosPage() {
     </main>
   );
 }
+
