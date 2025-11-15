@@ -79,59 +79,79 @@ export default function Home() {
 
         {/* GRID DE ARTÍCULOS */}
         <div className="post-grid" style={{ marginTop: 14 }}>
-          {latestPosts.map((post) => (
-            <Link
-              key={post.slug}
-              href={`/articulos/${post.slug}`}
-              className="clickable-card-link"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <article className="post-card clickable-card">
-                {/* MINIATURA DEL ARTÍCULO */}
-                <div
-                  className={`post-thumb ${post.cover ? "" : "thumb-game"}`}
-                  style={
-                    post.cover
-                      ? {
-                          backgroundImage: `url(${post.cover})`,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
-                        }
-                      : {}
-                  }
-                />
+          {latestPosts.map((post) => {
+            // ===== SOLO AÑADIMOS ESTO =====
+            // Si el post ya trae cover desde ./articulos/posts, lo usamos.
+            // Si no, ponemos la miniatura según el slug.
+            let cover = post.cover || null;
 
-                {/* CONTENIDO */}
-                <div className="post-body">
-                  <h4 style={{ marginBottom: 4 }}>{post.title}</h4>
+            if (!cover) {
+              const slug = String(post.slug || "").toLowerCase();
 
-                  <p className="meta">
-                    {new Date(post.date).toLocaleDateString("es-VE")} •{" "}
-                    {post.readingTime}
-                  </p>
+              if (slug.includes("ia") && slug.includes("fps")) {
+                cover = "/articulos/mitad-ia-fps.png";
+              } else if (slug.includes("ark") && slug.includes("raider")) {
+                cover = "/articulos/thumbnail_ark_raiders_600x400.png";
+              }
+            }
+            // ===== FIN CAMBIO =====
 
-                  <p className="meta" style={{ marginTop: 4 }}>
-                    {post.excerpt}
-                  </p>
-
+            return (
+              <Link
+                key={post.slug}
+                href={`/articulos/${post.slug}`}
+                className="clickable-card-link"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <article className="post-card clickable-card">
+                  {/* MINIATURA DEL ARTÍCULO */}
                   <div
-                    style={{
-                      display: "flex",
-                      gap: 8,
-                      flexWrap: "wrap",
-                      marginTop: 8,
-                    }}
-                  >
-                    {post.tags?.map((t) => (
-                      <span key={t} className="badge">
-                        {t}
-                      </span>
-                    ))}
+                    className={`post-thumb ${
+                      cover ? "with-img" : "thumb-game"
+                    }`}
+                    style={
+                      cover
+                        ? {
+                            backgroundImage: `url(${cover})`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                          }
+                        : {}
+                    }
+                  />
+
+                  {/* CONTENIDO */}
+                  <div className="post-body">
+                    <h4 style={{ marginBottom: 4 }}>{post.title}</h4>
+
+                    <p className="meta">
+                      {new Date(post.date).toLocaleDateString("es-VE")} •{" "}
+                      {post.readingTime}
+                    </p>
+
+                    <p className="meta" style={{ marginTop: 4 }}>
+                      {post.excerpt}
+                    </p>
+
+                    <div
+                      style={{
+                        display: "flex",
+                        gap: 8,
+                        flexWrap: "wrap",
+                        marginTop: 8,
+                      }}
+                    >
+                      {post.tags?.map((t) => (
+                        <span key={t} className="badge">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </article>
-            </Link>
-          ))}
+                </article>
+              </Link>
+            );
+          })}
         </div>
       </section>
     </div>
